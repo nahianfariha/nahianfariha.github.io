@@ -20,7 +20,7 @@ function Ui() {
   };
 
   return (
-    <div className="p-4 sm:ml-[25%] mt-3">
+    <div className="p-4 md:ml-[20rem] mt-3">
       <div className="p-4">
         <div className="columns-1 sm:columns-1 md:columns-1 lg:columns-1 gap-4 space-y-4">
           {images.map((src, index) => (

@@ -28,7 +28,7 @@ const Appr = () => {
   ];
 
   return (
-    <div className="p-4 sm:ml-[25%] mt-10">
+    <div className="p-4 md:ml-[20rem] mt-10">
       <div className="text-center">
         <h1 className="text-3xl font-lato font-bold text-gray-800 mb-12">
           Click to zoom in and read what people are saying about Dot Pictures Studio 💖

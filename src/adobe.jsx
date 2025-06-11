@@ -43,7 +43,7 @@ const CustomOrderForm = () => {
   };
 
   return (
-    <div className="sm:ml-[25%] px-4 sm:px-6 py-8">
+    <div className="md:ml-[20rem] px-4 sm:px-6 py-8">
       {/* Header */}
       <div className="text-center mb-6">
         <h1 className="text-3xl font-lato font-bold text-gray-800 mb-3">

@@ -2,7 +2,7 @@ import nf from './images/nf.avif'
 
 const About = () => {
   return (
-    <div className="p-4 sm:ml-[25%]  mt-0 ml-5 mr-5 px-5">
+    <div className="p-4 md:ml-[20rem]  mt-0 ml-5 mr-5 px-5">
 
     <section className="bg-yellow-50">
         <div className="container mx-auto py-16 px-4 sm:px-6 lg:px-8">
