@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './home';
 import Navbar from './Navbar';
 import Illustrations from './illustrations';
@@ -29,7 +29,8 @@ const App = () => {
         <Route path="/uidesign" element={<Ui />} />
         <Route path="/adobe" element={<CustomOrderForm />} />
         <Route path="/about" element={<About />} />
-        <Route path="/appr" element={<Appr />} /> {/* ✅ this is the URL path */}
+        <Route path="/appr" element={<Appr />} /> 
+        <Route path="*" element={<Home />} /> 
       </Routes>
 
     </Router>
