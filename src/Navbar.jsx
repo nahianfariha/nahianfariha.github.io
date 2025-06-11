@@ -16,7 +16,7 @@ function Navbar() {
   return (
     <div>
       {/* Logo button for mobile only */}
-      <div className="sm:hidden flex items-center justify-between p-2">
+      <div className="md:hidden flex items-center justify-between p-2">
         {/* Logo */}
         <img src={logo} className="h-10 w-10" alt="Logo" />
 
@@ -37,7 +37,7 @@ function Navbar() {
      <aside
          className={`fixed top-0 left-0 z-50 h-screen bg-white shadow-lg transform transition-transform
          w-80 sm:translate-x-0
-         ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} sm:block`}
+         ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} md:block`}
          >
          <div className="h-full px-3 py-4 overflow-y-auto bg-white dark:bg-white relative">
             {/* Close button for mobile only */}

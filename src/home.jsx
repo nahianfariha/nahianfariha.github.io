@@ -15,16 +15,16 @@ import randomVideo from './images/random.MP4';
 
 const Home = () => {
   return (
-    <div className="p-4 sm:ml-[25%] mt-3">
+    <div className="p-4 md:ml-[20rem] mt-3">
       {/* Optional video banner */}
-      <div className="w-full bg-black mb-6">
+      <div className="w-full mb-6 bg-black rounded-lg overflow-hidden">
         <video
           src={randomVideo}
           autoPlay
           loop
           muted
           playsInline
-          className="w-full h-64 rounded-lg"
+          className="w-full h-auto max-h-[90vh] object-cover"
         />
       </div>
 

@@ -23,15 +23,16 @@ export default {
         blush: "#FFE4E6",
         ashgray: "#B2BEB5", // Your earlier custom color
         brand: {
-          light: "#E0F2FE",
-          DEFAULT: "#3B82F6", // blue-500
-          dark: "#1E40AF"
+        light: "#E0F2FE",
+        DEFAULT: "#3B82F6", // blue-500
+        dark: "#1E40AF"
         },
       },
       fontFamily: {
         lato: ['Lato', 'sans-serif'],
         sacramento: ['"Sacramento"', 'cursive'],
       },
+      
     },
   },
   plugins: [flowbiteReact],
