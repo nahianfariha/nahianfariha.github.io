@@ -15,11 +15,13 @@ function Navbar() {
 
   return (
     <div>
-      {/* Logo button for mobile only */}
       <div className="md:hidden flex items-center justify-between p-2">
         {/* Logo */}
         <img src={logo} className="h-10 w-10" alt="Logo" />
-
+        {/* Mobile-only instruction for Android users */}
+        <h2 className="md:hidden text-lg font-lato font-bold text-center text-gray-800 mb-0">
+          Tap to shop or place a custom order 👉
+        </h2>
         {/* Hamburger Menu */}
         <button onClick={() => setIsSidebarOpen(true)} className="text-black focus:outline-none">
           <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">

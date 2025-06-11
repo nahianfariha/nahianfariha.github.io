@@ -1,4 +1,4 @@
-import nf from './images/nf.avif'
+import nf from './images/nf1.avif'
 
 const About = () => {
   return (
@@ -8,11 +8,13 @@ const About = () => {
         <div className="container mx-auto py-16 px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-8">
                 <div className="max-w-lg">
-                    <p className="mt-4 font-lato font-bold text-black-600 text-lg">"Hi, I am Nahian Fariha, the founder and sole artist of Dot Pictures Studio. I started Dot Picture Studio during my final year at university, around the time of the COVID-19 lockdown. What began as a creative outlet during quarantine grew into a three-year journey from May 2021 to April 2024. During this time, I created and sold paintings, graphic designs, print materials, and hand-painted tote bags. I also provided customized art and design services tailored to individual needs.</p>
+                    <p className="font-sacramento text-black-600 text-3xl">"Creation and problem-solving bring me joy—they’re at the heart of everything I do.</p>
+                    <p className="mt-4 font-lato font-bold text-black-600 text-sm">
+Hi, I’m Nahian Fariha, the founder and sole artist behind Dot Pictures Studio. I started this creative venture during my final year at university, in the midst of the COVID-19 lockdown. What began as a quarantine outlet blossomed into a three-year journey from May 2021 to April 2024.</p>
+<p className="mt-4 font-lato font-bold text-black-600 text-sm"> Through Dot Pictures Studio, I created and sold original paintings, graphic designs, print materials, and hand-painted tote bags. I also offered customized art and design services tailored to individual needs and styles.</p>
+<p className="mt-4 font-lato font-bold text-black-600 text-sm"> Alongside my artistic work, I practiced coding, explored web development and user experience design, and studied machine learning. Gradually, my interest in machine learning grew stronger, leading me to focus on it professionally. </p>
 
-<p className="mt-4 font-lato font-bold text-black-600 text-lg"> Alongside my artistic work, I practiced coding, explored web development and user experience design, and studied machine learning. Gradually, my interest in machine learning grew stronger, leading me to focus on it professionally. </p>
-
-<p className="mt-4 font-lato font-bold text-black-600 text-lg"> Dot Picture Studio remains a meaningful hobby—an outlet for creativity alongside my evolving academic and career ambitions."</p>
+<p className="mt-4 font-lato font-bold text-black-600 text-sm"> Dot Picture Studio remains a meaningful hobby—an outlet for creativity alongside my evolving academic and career ambitions."</p>
                 </div>
                 <div className="mt-12 md:mt-0">
                     <img src={nf} alt="About Us Image" class="object-cover rounded-lg shadow-md"/>
