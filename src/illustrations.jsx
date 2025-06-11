@@ -44,6 +44,8 @@ import ill54 from './images/illustrations/ill54.avif';
 import ill55 from './images/illustrations/ill55.avif';
 import ill56 from './images/illustrations/ill56.avif';
 
+import { motion } from 'framer-motion';
+
 function Illustrations() {
   const images = [
     ill0, ill01, ill02, ill2, ill3, ill4, ill05, ill5,
@@ -56,27 +58,61 @@ function Illustrations() {
 
   const [selectedImage, setSelectedImage] = useState(null);
 
-  const handleClick = (src) => {
-    setSelectedImage(src);
-  };
+  const handleClick = (src) => setSelectedImage(src);
+  const closeModal = () => setSelectedImage(null);
 
-  const closeModal = () => {
-    setSelectedImage(null);
+  const mid = Math.ceil(images.length / 2);
+  const column1 = images.slice(0, mid);
+  const column2 = images.slice(mid);
+
+  // Animation config
+  const itemVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 0.05,
+        duration: 0.5,
+        ease: 'easeOut',
+      },
+    }),
   };
 
   return (
     <div className="p-4 md:ml-[20rem] mt-3">
       <div className="p-4">
-        <div className="columns-2 sm:columns-1 md:columns-2 lg:columns-2 gap-4 space-y-4">
-          {images.map((src, index) => (
-            <img
-              key={index}
-              src={src}
-              onClick={() => handleClick(src)}
-              className="w-full h-auto mb-4 rounded-lg shadow-sm break-inside-avoid transition-transform duration-300 transform hover:scale-105 cursor-zoom-in"
-              alt={`Illustration ${index + 1}`}
-            />
-          ))}
+        <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col gap-4 w-full sm:w-1/2">
+            {column1.map((src, index) => (
+              <motion.img
+                key={`col1-${index}`}
+                src={src}
+                custom={index}
+                initial="hidden"
+                animate="visible"
+                variants={itemVariants}
+                onClick={() => handleClick(src)}
+                className="w-full h-auto rounded-lg shadow-sm transition-transform duration-300 transform hover:scale-105 cursor-zoom-in"
+                alt={`Illustration ${index + 1}`}
+              />
+            ))}
+          </div>
+          <div className="flex flex-col gap-4 w-full sm:w-1/2">
+            {column2.map((src, index) => (
+              <motion.img
+                key={`col2-${index}`}
+                src={src}
+                custom={index + mid}
+                initial="hidden"
+                animate="visible"
+                variants={itemVariants}
+                onClick={() => handleClick(src)}
+                className="w-full h-auto rounded-lg shadow-sm transition-transform duration-300 transform hover:scale-105 cursor-zoom-in"
+                alt={`Illustration ${mid + index + 1}`}
+              />
+            ))}
+          </div>
         </div>
 
         {selectedImage && (
