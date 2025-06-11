@@ -4,4 +4,5 @@ import flowbiteReact from "flowbite-react/plugin/vite";
 
 export default defineConfig({
   plugins: [react(), flowbiteReact()],
+  base: '/dotpicturesstudio',
 })
