@@ -1,15 +1,24 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 
 // Import T-shirt images
-import tee1 from './images/tshirts/tee1.avif';
-import tee2 from './images/tshirts/tee2.avif';
-import tee3 from './images/tshirts/tee3.avif';
-import tee4 from './images/tshirts/tee4.avif';
-import tee5 from './images/tshirts/tee5.avif';
-import tee6 from './images/tshirts/tee6.avif';
+import tee1 from './images/tshirts/tee1.webp';
+import tee2 from './images/tshirts/tee2.webp';
+import tee3 from './images/tshirts/tee3.webp';
+import tee4 from './images/tshirts/tee4.webp';
+import tee5 from './images/tshirts/tee5.webp';
+import tee6 from './images/tshirts/tee6.webp';
 
 function Tee() {
-  const images = [tee1, tee2, tee3, tee4, tee5, tee6];
+  const images = [
+    { src: tee1, caption: "ARTY WAVE TEE" },
+    { src: tee2, caption: "GEOMETRIC BLOOM TEE" },
+    { src: tee3, caption: "GALAXY VIBES TEE" },
+    { src: tee4, caption: "NEON NIGHT TEE" },
+    { src: tee5, caption: "URBAN GRUNGE TEE" },
+    { src: tee6, caption: "MINIMAL DREAM TEE" },
+  ];
+
   const [selectedImage, setSelectedImage] = useState(null);
 
   const handleClick = (src) => {
@@ -23,15 +32,69 @@ function Tee() {
   return (
     <div className="p-4 md:ml-[20rem] mt-3">
       <div className="p-4">
-        <div className="columns-1 sm:columns-1 md:columns-1 lg:columns-1 gap-4 space-y-4">
-          {images.map((src, index) => (
-            <img
-              key={index}
-              src={src}
-              alt={`Tee ${index + 1}`}
-              onClick={() => handleClick(src)}
-              className="w-full h-auto mb-4 rounded-lg shadow-sm break-inside-avoid transition-transform duration-300 transform hover:scale-105 cursor-zoom-in"
-            />
+
+        {/* First image full-width */}
+        <motion.div
+          className="w-full mb-12 rounded-lg shadow-sm overflow-hidden"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          viewport={{ once: true }}
+        >
+          <motion.img
+            src={images[0].src}
+            onClick={() => handleClick(images[0].src)}
+            alt={images[0].caption}
+            className="w-full h-auto cursor-zoom-in rounded-lg"
+            initial={{ x: -50, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          />
+          <div className="flex flex-col items-center justify-center mt-4 gap-2 mb-4">
+            <p className="font-lato font-bold text-center">{images[0].caption}</p>
+            <p className="font-lato font-bold text-center">PRICE : NOT AVAILABLE</p>
+            <button
+              onClick={() => window.location.href = `/buy?title=${encodeURIComponent(images[0].caption)}`}
+              className="bg-green-600 text-white px-4 py-1 rounded text-sm hover:bg-green-700"
+            >
+              BUY PRINT
+            </button>
+          </div>
+        </motion.div>
+
+        {/* Remaining images in 3-column layout */}
+        <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-4">
+          {images.slice(1).map(({ src, caption }, index) => (
+            <motion.div
+              key={index + 1}
+              className="break-inside-avoid rounded-sm shadow-sm overflow-hidden"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: 'easeOut' }}
+              viewport={{ once: true }}
+            >
+              <motion.img
+                src={src}
+                onClick={() => handleClick(src)}
+                alt={caption}
+                className="w-full aspect-[3/4] object-cover cursor-zoom-in"
+                initial={{ x: -50, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+              />
+              <div className="flex flex-col items-center justify-center mt-4 gap-2 mb-4">
+                <p className="font-lato font-bold text-center">{caption}</p>
+                <p className="font-lato font-bold text-center">PRICE : NOT AVAILABLE</p>
+                <button
+                  onClick={() => window.location.href = `/buy?title=${encodeURIComponent(caption)}`}
+                  className="bg-green-600 text-white px-4 py-1 rounded text-sm hover:bg-green-700"
+                >
+                  BUY PRINT
+                </button>
+              </div>
+            </motion.div>
           ))}
         </div>
 

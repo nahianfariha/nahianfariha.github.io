@@ -1,4 +1,4 @@
-import nf from './images/nf1.avif'
+import nf from './images/nf1.webp'
 
 const About = () => {
   return (

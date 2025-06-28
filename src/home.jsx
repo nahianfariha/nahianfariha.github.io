@@ -1,15 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FaShoppingCart, FaUser } from "react-icons/fa";
 
 // Image imports
-import ill1 from './images/illustrations/ill1.avif';
-import tothumb from './images/totebags/tothumb.avif';
-import p0 from './images/paintings/p0.avif';
-import ban8 from './images/banners/ban8.avif';
+import ill1 from './images/illustrations/ill1.webp';
+import tothumb from './images/totebags/tothumb.webp';
+import p0 from './images/paintings/p0.webp';
+import ban8 from './images/banners/ban8.webp';
 import ani1 from './images/animations/ani1.gif';
-import tee1 from './images/tshirts/tee1.avif';
-import ui1 from './images/uidesign/ui1.avif';
-import adobeThumb from './images/adobethumb.avif';
+import tee1 from './images/tshirts/tee1.webp';
+import ui1 from './images/uidesign/ui1.webp';
+import adobeThumb from './images/adobethumb.webp';
 import randomVideo from './images/random.MP4'; 
 
 const Home = () => {
@@ -28,11 +29,13 @@ const Home = () => {
           />
         </div>
 
+
+
         <div className="grid grid-cols-2 gap-6">
           {[
             { src: ill1, label: "ILLUSTRATIONS", link: "/illustrations" },
             { src: tothumb, label: "PAINTED TOTE BAGS", link: "/totebags" },
-            { src: p0, label: "PAINTINGS", link: "/paintings" },
+            { src: p0, label: "PAINTINGS", link: "/paintings", rel: "preload" },
             { src: ban8, label: "CARTOON/EVENT BANNERS", link: "/banners" },
             { src: ani1, label: "2D ANIMATIONS", link: "/2danimation" },
             { src: tee1, label: "T-SHIRTS", link: "/tee" },

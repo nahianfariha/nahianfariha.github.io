@@ -1,69 +1,95 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 
-import ban00 from './images/banners/ban00.avif';
-import ban0 from './images/banners/ban0.avif';
-import ban1 from './images/banners/ban1.avif';
-import ban2 from './images/banners/ban2.avif';
-import ban3 from './images/banners/ban3.avif';
-import ban5 from './images/banners/ban5.avif';
-import ban6 from './images/banners/ban6.avif';
-import ban8 from './images/banners/ban8.avif';
-import ban9 from './images/banners/ban9.avif';
-import ban10 from './images/banners/ban10.avif';
-import ban11 from './images/banners/ban11.avif';
+import ban00 from './images/banners/ban00.webp';
+import ban0 from './images/banners/ban0.webp';
+import ban1 from './images/banners/ban1.webp';
+import ban2 from './images/banners/ban2.webp';
+import ban3 from './images/banners/ban3.webp';
+import ban5 from './images/banners/ban5.webp';
+import ban6 from './images/banners/ban6.webp';
+import ban8 from './images/banners/ban8.webp';
+import ban9 from './images/banners/ban9.webp';
+import ban10 from './images/banners/ban10.webp';
+import ban11 from './images/banners/ban11.webp';
 
 function Banners() {
   const images = [
-   
-    ban00, ban0, ban1, ban2, ban3, ban5, ban6, ban8, ban9, ban10, ban11
-   
+    { src: ban00, caption: "CITY SKYLINE DREAM" },
+    { src: ban0, caption: "URBAN CALM" },
+    { src: ban1, caption: "SUNSET WAVE" },
+    { src: ban2, caption: "SERENE STREET" },
+    { src: ban3, caption: "BRIGHT MORNING" },
+    { src: ban5, caption: "BOLD ABSTRACT" },
+    { src: ban6, caption: "DAWN VIBES" },
+    { src: ban8, caption: "WINDOW OF COLORS" },
+    { src: ban9, caption: "TEXTURED REFLECTION" },
+    { src: ban10, caption: "GOLDEN LAYERS" },
+    { src: ban11, caption: "CLOUD TUNES" },
   ];
-   const [selectedImage, setSelectedImage] = useState(null);
 
-   const handleClick = (src) => {
-    console.log("Clicked image:", src); // ← Log to verify click
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const handleClick = (src) => {
     setSelectedImage(src);
-    };
+  };
 
-
-   const closeModal = () => {
+  const closeModal = () => {
     setSelectedImage(null);
-    };
+  };
 
-  
   return (
-  <div className="p-4 md:ml-[20rem] mt-3">
-    <div className="p-4">
-      <div className="columns-2 sm:columns-1 md:columns-2 lg:columns-2 gap-4 space-y-4">
-        {images.map((src, index) => (
-          <img
-            key={index}
-            src={src}
-            onClick={() => handleClick(src)}
-            className="w-full h-auto mb-4 rounded-lg shadow-sm break-inside-avoid transition-transform duration-300 transform hover:scale-105 cursor-zoom-in"
-          />
-          
-        ))}
-      </div>
-        {/* Lightbox Modal */}
-      {selectedImage && (
-        <div
-          onClick={closeModal}
-          className="fixed inset-0 z-50 bg-black bg-opacity-80 flex items-center justify-center p-4"
-        >
-          <img
-            src={selectedImage}
-            alt="Zoomed"
-            className="max-w-full max-h-full rounded-lg shadow-xl cursor-zoom-out"
-          />
+    <div className="p-4 md:ml-[20rem] mt-3">
+      <div className="p-4">
+        <div className="columns-2 md:columns-2 lg:columns-2 gap-7 space-y-4">
+          {images.map(({ src, caption }, index) => (
+            <motion.div
+              key={index}
+              className="relative rounded-sm shadow-sm overflow-hidden"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: 'easeOut' }}
+              viewport={{ once: true }}
+            >
+              <motion.img
+                src={src}
+                onClick={() => handleClick(src)}
+                className="w-full aspect-[3/2] object-cover cursor-zoom-in"
+                alt={caption}
+                initial={{ x: -50, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+              />
+              <div className="flex flex-col items-center justify-center mt-4 gap-2 mb-4">
+                <p className="font-lato font-bold text-center">{caption}</p>
+                <p className="font-lato font-bold text-center">PRICE : NOT AVAILABLE</p>
+                <button
+                  onClick={() => window.location.href = `/buy?title=${encodeURIComponent(caption)}`}
+                  className="bg-green-600 text-white px-4 py-1 rounded text-sm hover:bg-green-700"
+                >
+                  BUY PRINT
+                </button>
+              </div>
+            </motion.div>
+          ))}
         </div>
-      )}
-    </div>
+
+        {selectedImage && (
+          <div
+            onClick={closeModal}
+            className="fixed inset-0 z-50 bg-black bg-opacity-80 flex items-center justify-center p-4"
+          >
+            <img
+              src={selectedImage}
+              alt="Zoomed"
+              className="max-w-full max-h-full rounded-lg shadow-xl cursor-zoom-out"
+            />
+          </div>
+        )}
+      </div>
     </div>
   );
 }
 
 export default Banners;
-
-
-

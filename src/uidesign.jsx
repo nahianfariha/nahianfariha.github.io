@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
 // ✅ Import UI images (including the .gif)
-import ui1 from './images/uidesign/ui1.avif';
-import ui2 from './images/uidesign/ui2.avif';
+import ui1 from './images/uidesign/ui1.webp';
+import ui2 from './images/uidesign/ui2.webp';
 import ui4 from './images/uidesign/ui4.gif';
-import ui5 from './images/uidesign/ui5.avif';
-import ui6 from './images/uidesign/ui6.avif';
+import ui5 from './images/uidesign/ui5.webp';
+import ui6 from './images/uidesign/ui6.webp';
 
 function Ui() {
   const images = [ui1, ui2, ui4, ui5, ui6];
