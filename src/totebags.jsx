@@ -52,10 +52,52 @@ import to26 from './images/totebags/to26.webp';
 
 function Totebags() {
   const images = [
-    to1, to2, t00, t0, t1, t2, t4, t5, t6, t7, t8,
-    t10, t11, t12, t13, t14, t15, t17, t19, t20, t21, t22, t23, t24,
-    to3, to5, to6, to7, to8, to9, to10, to11, to13, to14, to15, to16,
-    to17, to18, to19, to20, to21, to22, to23, to24, to25, to26
+    { src: to1, name: 'Pastel Bloom' },
+    { src: to2, name: 'PAINTED ON PINK' },
+    { src: t00, name: 'BEAUTIFUL DAY' },
+    { src: t0, name: 'GARDENING' },
+    { src: t1, name: 'FLORAL PAINTED' },
+    { src: t2, name: 'MINI BAGS' },
+    { src: t4, name: 'FLORAL PAINTED' },
+    { src: t5, name: 'FLORAL PAINTED' },
+    { src: t6, name: 'PAINTED ON PINK' },
+    { src: t7, name: 'GOLF CLUB PAINTED' },
+    { src: t8, name: 'DISC GOLF PAINTED' },
+    { src: t10, name: 'GOLF WITH PETS PAINTED' },
+    { src: t11, name: 'SUNSET WITH MOMMY PAINTED' },
+    { src: t12, name: 'JOHN LENNON' },
+    { src: t13, name: 'THE BOATMAN' },
+    { src: t14, name: 'COMFORTABLY NUMB' },
+    { src: t15, name: 'PAINTED CAR ON TOTE' },
+    { src: t17, name: 'PAINTED CAR ON TOTE' },
+    { src: t19, name: 'FLORAL PAINTED' },
+    { src: t20, name: 'BAUL PAINTED' },
+    { src: t21, name: 'PORONTO BIKEL' },
+    { src: t22, name: 'SHUNDORI KOMOLA' },
+    { src: t23, name: 'CAR PAINTED' },
+    { src: t24, name: 'TOTE BAGS COMBO' },
+    { src: to3, name: 'GIRL & WHITE SAREE' },
+    { src: to5, name: 'FOLK FLOWERS' },
+    { src: to6, name: 'DISC GOLF' },
+    { src: to7, name: 'GOLF CLUB' },
+    { src: to8, name: 'THE BOATMAN' },
+    { src: to9, name: 'CHOL RASTAY' },
+    { src: to10, name: 'CNG DHAKA' },
+    { src: to11, name: 'HEY BARBIE' },
+    { src: to13, name: 'THE GOLFMAN' },
+    { src: to14, name: 'BAUL TOTEBAG' },
+    { src: to15, name: 'BONJOUR' },
+    { src: to16, name: 'STARWARS' },
+    { src: to17, name: 'NUPUR' },
+    { src: to18, name: 'MINI BAGS' },
+    { src: to19, name: 'SIMPLE SEA' },
+    { src: to20, name: 'PRINTED TOTEBAG' },
+    { src: to21, name: 'FORGET ME NOT' },
+    { src: to22, name: 'FOR BOOK LOVERS' },
+    { src: to23, name: 'KAKER THENG' },
+    { src: to24, name: 'PINK TULIPS' },
+    { src: to25, name: 'MARIGOLD' },
+    { src: to26, name: 'TWINS' }
   ];
 
   const [selectedImage, setSelectedImage] = useState(null);
@@ -73,7 +115,6 @@ function Totebags() {
       <div className="p-4">
 
         {/* 🌟 FEATURED FIRST IMAGE */}
-        
         <motion.div
           className="mb-8"
           initial={{ opacity: 0, scale: 0.95 }}
@@ -82,30 +123,28 @@ function Totebags() {
           viewport={{ once: true }}
         >
           <motion.h1
-          className="text-black bg-green-200 font-lato font-extrabold md:text-3xl mb-6 text-center"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
-        >
-          TAKING   ORDERS   FOR   CUSTOMIZED   PAINTED   TOTE   BAGS.
-        </motion.h1>
+            className="text-black bg-green-200 font-lato font-extrabold md:text-3xl mb-6 text-center"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+          >
+            TAKING ORDERS FOR CUSTOMIZED PAINTED TOTE BAGS.
+          </motion.h1>
           <motion.img
-            src={images[0]}
-            alt="Featured Totebag"
-            onClick={() => handleClick(images[0])}
-            className="w-full  mx-auto shadow-lg object-cover cursor-zoom-in"
+            src={images[0].src}
+            alt={images[0].name}
+            onClick={() => handleClick(images[0].src)}
+            className="w-full mx-auto shadow-lg object-cover cursor-zoom-in"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            
           />
-          
         </motion.div>
 
         {/* 👜 GRID OF OTHER TOTE BAGS */}
         <div className="columns-2 md:columns-3 lg:columns-3 gap-7 space-y-4">
-          {images.slice(1).map((src, index) => (
+          {images.slice(1).map((img, index) => (
             <motion.div
               key={index}
               className="relative rounded-sm shadow-sm overflow-hidden"
@@ -115,23 +154,23 @@ function Totebags() {
               viewport={{ once: true }}
             >
               <motion.img
-                src={src}
-                onClick={() => handleClick(src)}
+                src={img.src}
+                onClick={() => handleClick(img.src)}
                 className="w-full aspect-[3/4] object-cover cursor-zoom-in"
-                alt={`Totebag ${index + 2}`}
+                alt={img.name}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: 'easeOut' }}
                 viewport={{ once: true }}
               />
               <div className="flex flex-col items-center justify-center mt-4 gap-2 mb-4">
-                <p className="font-lato font-bold text-center">Totebag {index + 2}</p>
+                <p className="font-lato font-bold text-center">{img.name}</p>
                 <p className="font-lato font-bold text-center">PRICE : NOT AVAILABLE</p>
                 <button
-                  onClick={() => window.location.href = `/buy?title=Totebag%20${index + 2}`}
+                  onClick={() => window.location.href = `/buy?title=${encodeURIComponent(img.name)}`}
                   className="bg-green-600 text-white px-4 py-1 rounded text-sm hover:bg-green-700"
                 >
-                  BUY TOTE
+                  BUY
                 </button>
               </div>
             </motion.div>

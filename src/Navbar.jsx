@@ -1,5 +1,7 @@
 import { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 import logo from './images/logocircle0.webp';
+
 import {
   FaFacebookF,
   FaInstagram,
@@ -9,14 +11,12 @@ import {
   FaShoppingCart,
   FaUser
 } from "react-icons/fa";
-import { Link } from "react-router-dom";
 import { IoClose } from "react-icons/io5";
 
 function Navbar() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const touchStartX = useRef(null);
 
-  // Swipe gesture handlers
   const handleTouchStart = (e) => {
     touchStartX.current = e.touches[0].clientX;
   };
@@ -27,10 +27,10 @@ function Navbar() {
     const diff = currentX - touchStartX.current;
 
     if (diff > 50) {
-      setIsSidebarOpen(true); // swipe right to open
+      setIsSidebarOpen(true);
       touchStartX.current = null;
     } else if (diff < -50) {
-      setIsSidebarOpen(false); // swipe left to close
+      setIsSidebarOpen(false);
       touchStartX.current = null;
     }
   };
@@ -46,9 +46,9 @@ function Navbar() {
 
   return (
     <div>
-      {/* Mobile top bar */}
+      {/* Mobile Top Bar */}
       <div className="md:hidden relative flex items-center justify-between px-4 py-2">
-        {/* Hamburger Menu (Left) */}
+        {/* Hamburger */}
         <button
           onClick={() => setIsSidebarOpen(true)}
           className="text-black focus:outline-none"
@@ -72,38 +72,35 @@ function Navbar() {
 
         {/* Login & Cart */}
         <div className="flex space-x-4 items-center">
-          <button className="text-black  hover:text-yellow-500 cursor-pointer">
+          <Link to="/cart" className="text-black hover:text-yellow-500 cursor-pointer flex flex-col items-center">
             <FaShoppingCart size={18} />
             <span className="text-xs font-lato font-bold mt-1">Cart</span>
-          </button>
-          <button className="text-black  hover:text-yellow-500 cursor-pointer">
+          </Link>
+
+          <Link to="/login" className="text-black hover:text-yellow-500 cursor-pointer flex flex-col items-center">
             <FaUser size={18} />
             <span className="text-xs font-lato font-bold mt-1">Login</span>
-          </button>
-          
+          </Link>
         </div>
-        </div>
-     
-
-
+      </div>
 
       {/* Sidebar */}
       <aside
         className={`fixed top-0 left-0 z-50 h-screen bg-white shadow-lg transform transition-transform w-80 
         sm:translate-x-0 ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} md:block`}
       >
-        <div className="h-full px-3 py-4 overflow-y-auto bg-white dark:bg-white relative">
-          {/* Close button for mobile */}
+        <div className="h-full px-3 py-4 overflow-y-auto bg-white relative">
+          {/* Close for mobile */}
           <div className="sm:hidden flex justify-end">
             <button onClick={() => setIsSidebarOpen(false)}>
               <IoClose size={24} />
             </button>
           </div>
 
-          {/* Desktop divider */}
+          {/* Divider for desktop */}
           <div className="hidden sm:block absolute right-0 top-[61%] transform -translate-y-[30%] h-1/3 w-px bg-gray-200"></div>
 
-          {/* Sidebar Logo and Title (desktop only) */}
+          {/* Sidebar logo */}
           <a className="flex flex-col items-center justify-center py-4 mt-0 mb-1">
             <img src={logo} className="h-40 w-40 mt-0" alt="Logo" />
             <span className="font-sacramento text-4xl text-center text-black rounded-lg mt-5">
@@ -111,25 +108,26 @@ function Navbar() {
             </span>
           </a>
 
-
           {/* Nav Items */}
           <ul className="space-y-0 text-m tracking-widest">
-           
+            {/* Desktop Login and Cart */}
             <div className="hidden md:flex justify-center gap-20 mt-7">
-            <div className="flex flex-col items-center  text-black hover:text-yellow-500">
-              <FaUser size={20} />
-              <span className="text-sm font-lato font-bold mt-1">Login</span>
+              <Link to="/cart" className="flex flex-col items-center text-black hover:text-yellow-500">
+                <FaShoppingCart size={20} />
+                <span className="text-sm font-lato font-bold mt-1">Cart</span>
+              </Link>
+              <Link to="/login" className="flex flex-col items-center text-black hover:text-yellow-500">
+                <FaUser size={20} />
+                <span className="text-sm font-lato font-bold mt-1">Login</span>
+              </Link>
             </div>
-            <div className="flex flex-col  items-center text-black hover:text-yellow-500">
-              <FaShoppingCart size={20} />
-              <span className="text-sm font-lato font-bold mt-1">Cart</span>
-            </div>
-            </div>
-           <li>
-              <span className="flex justify-center text-sm items-center font-lato font-bold text-center p-2 mt-5 mb-5 text-black rounded-lg dark:text-black">
+
+            <li>
+              <span className="flex justify-center text-sm items-center font-lato font-bold text-center p-2 mt-5 mb-5 text-black">
                 CLICK AN IMAGE CATEGORY TO VIEW THE FULL GALLERY →
               </span>
             </li>
+
             <li>
               <Link
                 to="/"
@@ -139,7 +137,7 @@ function Navbar() {
                 HOME
               </Link>
             </li>
-            
+
             <li>
               <Link
                 to="/about"
@@ -150,7 +148,7 @@ function Navbar() {
               </Link>
             </li>
 
-            {/* Social Icons */}
+            {/* Socials */}
             <li className="flex justify-center mt-6 space-x-5">
               <a
                 href="https://facebook.com/dotpicturesstudiofb"
@@ -193,7 +191,6 @@ function Navbar() {
             </li>
           </ul>
         </div>
-        
       </aside>
     </div>
   );

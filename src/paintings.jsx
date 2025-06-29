@@ -35,36 +35,36 @@ import p31 from './images/paintings/p31.webp';
 
 function Paintings() {
   const images = [
-    { src: p00, caption: "MORNING BLUSH" },
-    { src: p0, caption: "NIGHT VEINS" },
-    { src: p1, caption: "RED FLOW" },
-    { src: p2, caption: "HARMONY WITHIN" },
-    { src: p3, caption: "NOSTALGIA FIELD" },
-    { src: p4, caption: "WANDERING SOUL" },
-    { src: p5, caption: "ETERNAL NATURE" },
-    { src: p6, caption: "SCENTED MEMORY" },
-    { src: p7, caption: "WHISPERS OF TIME" },
-    { src: p8, caption: "LUSH RETREAT" },
-    { src: p9, caption: "ROOTED THOUGHTS" },
-    { src: p10, caption: "FLOW WITH ME" },
-    { src: p11, caption: "HORIZON BREATHS" },
-    { src: p13, caption: "DREAMWALKER" },
-    { src: p15, caption: "INNER PEACE" },
-    { src: p16, caption: "OCEAN INK" },
-    { src: p17, caption: "FIRE BLOOM" },
-    { src: p18, caption: "THE GARDEN TALKS" },
-    { src: p19, caption: "SILENT FURY" },
-    { src: p20, caption: "FLEETING GLORY" },
-    { src: p21, caption: "CYCLE OF LIFE" },
-    { src: p22, caption: "ECHOING HILLS" },
-    { src: p23, caption: "SPIRAL PATH" },
-    { src: p24, caption: "NIGHTLY PRAYER" },
-    { src: p25, caption: "GOLDEN RIVER" },
-    { src: p27, caption: "FRAGILE FIELDS" },
-    { src: p28, caption: "SOUL PATTERNS" },
-    { src: p29, caption: "THE WEEPING TREE" },
-    { src: p30, caption: "REVERIE" },
-    { src: p31, caption: "FAINT ECHO" },
+    { src: p00, caption: "NAME IS NOT AVAILABLE" },
+    { src: p0, caption: "SKYBLUE" },
+    { src: p1, caption: "VICTORY IS A STATE OF MIND" },
+    { src: p2, caption: "BAILANDO" },
+    { src: p3, caption: "NAME IS NOT AVAILABLE" },
+    { src: p4, caption: "HOTEL CALIFORNIA" },
+    { src: p5, caption: "THE OCEAN" },
+    { src: p6, caption: "DON'T STOP ME NOW" },
+    { src: p7, caption: "COMFORTABLY NUMB" },
+    { src: p8, caption: "ONE WAY" },
+    { src: p9, caption: "WOMAN WITH A HAT" },
+    { src: p10, caption: "NAME IS NOT AVAILABLE" },
+    { src: p11, caption: "WAR & PEACE" },
+    { src: p13, caption: "NAME IS NOT AVAILABLE" },
+    { src: p15, caption: "NAKSHI STYLE PAINTING FOR HOME-DECOR" },
+    { src: p16, caption: "NAKSHI STYLE PAINTING FOR HOME-DECOR" },
+    { src: p17, caption: "NAKSHI STYLE PAINTING FOR HOME-DECOR" },
+    { src: p18, caption: "NAKSHI STYLE PAINTING FOR HOME-DECOR" },
+    { src: p19, caption: "WATER LILIES" },
+    { src: p20, caption: "NAME IS NOT AVAILABLE" },
+    { src: p21, caption: "NAME IS NOT AVAILABLE" },
+    { src: p22, caption: "NAME IS NOT AVAILABLE" },
+    { src: p23, caption: "NAME IS NOT AVAILABLE" },
+    { src: p24, caption: "NAME IS NOT AVAILABLE" },
+    { src: p25, caption: "NAME IS NOT AVAILABLE" },
+    { src: p27, caption: "NAME IS NOT AVAILABLE" },
+    { src: p28, caption: "NAME IS NOT AVAILABLE" },
+    { src: p29, caption: "NAME IS NOT AVAILABLE" },
+    { src: p30, caption: "NAME IS NOT AVAILABLE" },
+    { src: p31, caption: "GRAMBANGLA" },
   ];
 
   const [selectedImage, setSelectedImage] = useState(null);
@@ -107,7 +107,7 @@ function Paintings() {
                   onClick={() => window.location.href = `/buy?title=${encodeURIComponent(caption)}`}
                   className="bg-green-600 text-white px-4 py-1 rounded text-sm hover:bg-green-700"
                 >
-                  BUY PRINT
+                  BUY 
                 </button>
               </div>
             </motion.div>

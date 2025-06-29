@@ -11,12 +11,12 @@ import tee6 from './images/tshirts/tee6.webp';
 
 function Tee() {
   const images = [
-    { src: tee1, caption: "ARTY WAVE TEE" },
-    { src: tee2, caption: "GEOMETRIC BLOOM TEE" },
-    { src: tee3, caption: "GALAXY VIBES TEE" },
-    { src: tee4, caption: "NEON NIGHT TEE" },
-    { src: tee5, caption: "URBAN GRUNGE TEE" },
-    { src: tee6, caption: "MINIMAL DREAM TEE" },
+    { src: tee1, caption: "JOHN LENNON TEE & TOTE BAG COMBO" },
+    { src: tee2, caption: "CUSTOMIZED PRINTED TEE" },
+    { src: tee3, caption: "JOHN LENNON PAINTED TEE" },
+    { src: tee4, caption: "DON'T STOP ME NOW PAINTED TEE" },
+    { src: tee5, caption: "PRINTED TEE" },
+    { src: tee6, caption: "BRAND DESIGN TEE" },
   ];
 
   const [selectedImage, setSelectedImage] = useState(null);
@@ -58,7 +58,7 @@ function Tee() {
               onClick={() => window.location.href = `/buy?title=${encodeURIComponent(images[0].caption)}`}
               className="bg-green-600 text-white px-4 py-1 rounded text-sm hover:bg-green-700"
             >
-              BUY PRINT
+              BUY 
             </button>
           </div>
         </motion.div>
@@ -91,7 +91,7 @@ function Tee() {
                   onClick={() => window.location.href = `/buy?title=${encodeURIComponent(caption)}`}
                   className="bg-green-600 text-white px-4 py-1 rounded text-sm hover:bg-green-700"
                 >
-                  BUY PRINT
+                  BUY  
                 </button>
               </div>
             </motion.div>

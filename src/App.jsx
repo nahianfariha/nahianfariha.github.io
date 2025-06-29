@@ -3,6 +3,8 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Navbar from './Navbar';
 import Home from './home';
+import Login from './login';
+import Cart from "./cart";
 
 // Lazy-loaded components
 const Illustrations = lazy(() => import('./illustrations'));
@@ -13,6 +15,8 @@ const Totebags = lazy(() => import('./totebags'));
 const Tee = lazy(() => import('./tee'));
 const Ui = lazy(() => import('./uidesign'));
 const About = lazy(() => import('./about'));
+
+
 
 // Optional fallback UI during lazy loading
 const Loading = () => (
@@ -38,6 +42,8 @@ const App = () => {
           <Route path="/uidesign" element={<Ui />} />
           <Route path="/about" element={<About />} />
           <Route path="*" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </Suspense>
     </Router>

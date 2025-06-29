@@ -15,17 +15,17 @@ import ban11 from './images/banners/ban11.webp';
 
 function Banners() {
   const images = [
-    { src: ban00, caption: "CITY SKYLINE DREAM" },
-    { src: ban0, caption: "URBAN CALM" },
-    { src: ban1, caption: "SUNSET WAVE" },
-    { src: ban2, caption: "SERENE STREET" },
-    { src: ban3, caption: "BRIGHT MORNING" },
-    { src: ban5, caption: "BOLD ABSTRACT" },
-    { src: ban6, caption: "DAWN VIBES" },
-    { src: ban8, caption: "WINDOW OF COLORS" },
-    { src: ban9, caption: "TEXTURED REFLECTION" },
-    { src: ban10, caption: "GOLDEN LAYERS" },
-    { src: ban11, caption: "CLOUD TUNES" },
+    { src: ban00, caption: "CARTOON WEDDING BANNERS" },
+    { src: ban0, caption: "PRINTED CARTOON WEDDING BANNERS" },
+    { src: ban1, caption: "PRINT-READY CARTOON WEDDING BANNERS" },
+    { src: ban2, caption: "PRINTED WEDDING BANNERS" },
+    { src: ban3, caption: "PRINT-READY CARTOON WEDDING BANNERS" },
+    { src: ban5, caption: "CARTOON WEDDING BANNERS WITH ANIMATION" },
+    { src: ban6, caption: "CUSTOMIZED CARTOON WEDDING BANNER" },
+    { src: ban8, caption: "CUSTOMIZED WEDDING BANNER" },
+    { src: ban9, caption: "CUSTOMIZED WEDDING BANNER" },
+    { src: ban10, caption: "EVENT BANNERS" },
+    { src: ban11, caption: "EVENT BANNERS" },
   ];
 
   const [selectedImage, setSelectedImage] = useState(null);
@@ -68,7 +68,7 @@ function Banners() {
                   onClick={() => window.location.href = `/buy?title=${encodeURIComponent(caption)}`}
                   className="bg-green-600 text-white px-4 py-1 rounded text-sm hover:bg-green-700"
                 >
-                  BUY PRINT
+                  ORDER
                 </button>
               </div>
             </motion.div>
