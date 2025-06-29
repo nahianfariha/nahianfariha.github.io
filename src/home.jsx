@@ -85,7 +85,7 @@ const Home = () => {
       {/* Zoomed Image Modal */}
       {zoomImage && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center"
+          className="fixed inset-0 mt-[160px] bg-black bg-opacity-90 z-50 flex items-center justify-center"
           onClick={() => setZoomImage(null)}
         >
           <img

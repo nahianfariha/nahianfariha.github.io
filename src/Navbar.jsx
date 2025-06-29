@@ -47,7 +47,9 @@ function Navbar() {
   return (
     <div>
       {/* Mobile Top Bar */}
-      <div className="md:hidden relative flex items-center justify-between px-4 py-2">
+      {/* Mobile Top Bar */}
+       <div className="md:hidden relative flex items-center justify-between px-4 py-2 h-[140px]">
+
         {/* Hamburger */}
         <button
           onClick={() => setIsSidebarOpen(true)}
@@ -63,12 +65,14 @@ function Navbar() {
         </button>
 
         {/* Logo */}
-        <div className="flex flex-col items-center">
-          <img src={logo} className="h-28 w-28 drop-shadow-md mt-2" alt="Logo" />
-          <span className="font-sacramento text-4xl mt-2 text-gray-800">
+        {/* Centered Logo + Text */}
+        <div className="absolute left-1/2 transform -translate-x-1/2 flex flex-col items-center mt-7">
+          <img src={logo} className="h-24 w-24 drop-shadow-md mt-1" alt="Logo" />
+          <span className="font-sacramento text-3xl mt-3 text-gray-800">
             by Nahian Fariha
           </span>
         </div>
+
 
         {/* Login & Cart */}
         <div className="flex space-x-4 items-center">
