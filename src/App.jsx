@@ -12,7 +12,6 @@ const Banners = lazy(() => import('./banners'));
 const Totebags = lazy(() => import('./totebags'));
 const Tee = lazy(() => import('./tee'));
 const Ui = lazy(() => import('./uidesign'));
-const CustomOrderForm = lazy(() => import('./adobe'));
 const About = lazy(() => import('./about'));
 const Appr = lazy(() => import('./appr'));
 
@@ -38,7 +37,6 @@ const App = () => {
           <Route path="/totebags" element={<Totebags />} />
           <Route path="/tee" element={<Tee />} />
           <Route path="/uidesign" element={<Ui />} />
-          <Route path="/adobe" element={<CustomOrderForm />} />
           <Route path="/about" element={<About />} />
           <Route path="/appr" element={<Appr />} />
           <Route path="*" element={<Home />} />
