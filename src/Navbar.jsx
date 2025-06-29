@@ -114,22 +114,22 @@ function Navbar() {
 
           {/* Nav Items */}
           <ul className="space-y-0 text-m tracking-widest">
-            <li>
-              <span className="flex justify-center items-center font-lato font-bold text-center p-2 mt-5 mb-5 text-black rounded-lg dark:text-black">
-                CLICK AN IMAGE CATEGORY TO VIEW THE FULL GALLERY →
-              </span>
-            </li>
-            <div className="hidden md:flex justify-center gap-20">
-            <div className="flex flex-col items-center mb-5 text-black hover:text-yellow-500">
+           
+            <div className="hidden md:flex justify-center gap-20 mt-7">
+            <div className="flex flex-col items-center  text-black hover:text-yellow-500">
               <FaUser size={20} />
               <span className="text-sm font-lato font-bold mt-1">Login</span>
             </div>
-            <div className="flex flex-col mb-5 items-center text-black hover:text-yellow-500">
+            <div className="flex flex-col  items-center text-black hover:text-yellow-500">
               <FaShoppingCart size={20} />
               <span className="text-sm font-lato font-bold mt-1">Cart</span>
             </div>
             </div>
-
+           <li>
+              <span className="flex justify-center text-sm items-center font-lato font-bold text-center p-2 mt-5 mb-5 text-black rounded-lg dark:text-black">
+                CLICK AN IMAGE CATEGORY TO VIEW THE FULL GALLERY →
+              </span>
+            </li>
             <li>
               <Link
                 to="/"
@@ -139,15 +139,7 @@ function Navbar() {
                 HOME
               </Link>
             </li>
-            <li>
-              <Link
-                to="/adobe"
-                onClick={() => setIsSidebarOpen(false)}
-                className="flex justify-center items-center text-black rounded-lg hover:bg-yellow-50 font-lato font-bold"
-              >
-                SHOP OR CUSTOMIZE
-              </Link>
-            </li>
+            
             <li>
               <Link
                 to="/about"
