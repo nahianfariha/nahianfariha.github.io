@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { FaShoppingCart, FaUser } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
 
+
 // Image imports
 import ill1 from "./images/illustrations/ill1.webp";
 import tothumb from "./images/totebags/tothumb.webp";
@@ -114,7 +115,7 @@ const Home = () => {
                 <Link
                   key={index}
                   to={item.link}
-                  className="col-span-3 bg-yellow-50 rounded-lg p-4 flex flex-col md:flex-row items-center gap-6 transition duration-300 hover:shadow-xl"
+                  className="col-span-3 bg-yellow-100 rounded-lg p-4 flex flex-col md:flex-row items-center gap-6 transition duration-300 hover:shadow-xl"
                 >
                   <img
                     className="w-full md:w-1/2 rounded-lg object-cover"
@@ -241,34 +242,52 @@ const Home = () => {
 
         {/* Testimonials */}
         <div className="px-4 sm:px-6 mt-20">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-lato font-bold text-gray-800 mb-3">
-              SEE WHAT PEOPLE ARE SAYING
-            </h2>
-            <p className="text-gray-600 font-lato font-bold text-sm sm:text-base">
-              Hear directly from some of our happy clients who got exactly what
-              they imagined!
-            </p>
-          </div>
+  <div className="text-center mb-10">
+    <h2 className="text-3xl font-lato font-bold text-gray-800 mb-3">
+      SEE WHAT PEOPLE ARE SAYING
+    </h2>
+    <p className="text-gray-600 font-lato font-bold text-sm sm:text-base">
+      Hear directly from some of our happy clients who got exactly what
+      they imagined!
+    </p>
+  </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {[person1, person2, person3, person4, person5, person6, person7, person8, person9, person10, person11, person12].map((src, idx) => (
-              <div
-                key={idx}
-                className="bg-white border shadow-sm rounded-lg overflow-hidden cursor-pointer"
-                onClick={() => setZoomImage(src)}
-              >
-                <div className="w-full h-64 overflow-hidden">
-                  <img
-                    src={src}
-                    alt={`testimonial-${idx + 1}`}
-                    className="w-full h-full object-cover transition duration-300 hover:scale-105"
-                  />
-                </div>
-              </div>
-            ))}
+  <div className="overflow-hidden relative">
+    <div className="flex space-x-6 animate-scroll">
+      {[...([person1, person2, person3, person4, person5, person6, person7, person8, person9, person10, person11, person12])].concat([person1, person2, person3, person4, person5, person6, person7, person8, person9, person10, person11, person12]).map((src, idx) => (
+        <div
+          key={idx}
+          className="flex-shrink-0 w-72 bg-white border shadow-sm rounded-lg overflow-hidden cursor-pointer"
+          onClick={() => setZoomImage(src)}
+        >
+          <div className="w-full h-64 overflow-hidden">
+            <img
+              src={src}
+              alt={`testimonial-${idx + 1}`}
+              className="w-full h-full object-cover transition duration-300 hover:scale-105"
+            />
           </div>
         </div>
+      ))}
+    </div>
+  </div>
+
+  <style jsx>{`
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+    .animate-scroll {
+      animation: scroll 40s linear infinite;
+      width: max-content;
+    }
+  `}</style>
+</div>
+
 
         <footer className="bg-white mt-24 shadow-sm border-t">
           <div className="max-w-screen-xl mx-auto px-4 py-6 text-center">
