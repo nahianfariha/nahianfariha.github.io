@@ -1,20 +1,13 @@
 import React, { Suspense, lazy } from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 
-import Navbar from './Navbar';
+
+
 import Home from './home';
-import Login from './login';
-import Cart from "./cart";
 
 // Lazy-loaded components
-const Illustrations = lazy(() => import('./illustrations'));
-const Paintings = lazy(() => import('./paintings'));
-const Animati = lazy(() => import('./2danimation'));
-const Banners = lazy(() => import('./banners'));
-const Totebags = lazy(() => import('./totebags'));
-const Tee = lazy(() => import('./tee'));
-const Ui = lazy(() => import('./uidesign'));
-const About = lazy(() => import('./about'));
+
+//const About = lazy(() => import('./about'));
 
 
 
@@ -33,17 +26,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/illustrations" element={<Illustrations />} />
-          <Route path="/2danimation" element={<Animati />} />
-          <Route path="/paintings" element={<Paintings />} />
-          <Route path="/banners" element={<Banners />} />
-          <Route path="/totebags" element={<Totebags />} />
-          <Route path="/tee" element={<Tee />} />
-          <Route path="/uidesign" element={<Ui />} />
-          <Route path="/about" element={<About />} />
           <Route path="*" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/cart" element={<Cart />} />
         </Routes>
       </Suspense>
     </Router>
