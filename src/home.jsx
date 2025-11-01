@@ -81,7 +81,7 @@ const App = () => {
             </div>
 
             <div className="resume-download">
-              <a href="./images/resume.pdf" download className="resume-btn">
+              <a href="./Images/resume.pdf" download className="resume-btn">
                 <i className="fas fa-download"></i> Download My Resume
               </a>
             </div>
