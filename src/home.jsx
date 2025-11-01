@@ -79,9 +79,8 @@ const App = () => {
         <a href="https://github.com/NahianFariha"><i className="fab fa-github"></i></a>
         <a href="https://linkedin.com/in/nahian-fariha"><i className="fab fa-linkedin"></i></a>
       </div>
-
       <div className="resume-download">
-        <a href="/resume.pdf" download className="resume-btn">
+        <a href="https://drive.google.com/file/d/1zPUk76mjYAUhCLNUKB1qDXWxGE3mD5NL/view?usp=sharing" download className="resume-btn">
           <i className="fas fa-download"></i> Download My Resume
         </a>
       </div>
