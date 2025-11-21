@@ -74,14 +74,14 @@ const App = () => {
       </div>
 
       <div className="contact-links">
-        <a href="mailto:nahianfariha.cs@gmail.com"><i className="fas fa-envelope"></i></a>
-        <a href="tel:+8801673759691"><i className="fas fa-phone"></i></a>
+        <a href="mailto:nahianfariha.cs@gmail.com"><i className="fas fa-envelope" ></i>📧</a>
+        <a href="tel:+8801673759691"><i className="fas fa-phone"  aria-hidden="true"></i>📞</a>
         <a href="https://github.com/NahianFariha"><i className="fab fa-github"></i></a>
         <a href="https://linkedin.com/in/nahian-fariha"><i className="fab fa-linkedin"></i></a>
       </div>
       <div className="resume-download">
-        <a href="https://drive.google.com/file/d/1zPUk76mjYAUhCLNUKB1qDXWxGE3mD5NL/view?usp=sharing" download className="resume-btn">
-          <i className="fas fa-download"></i> Download My Resume
+        <a href="https://drive.google.com/file/d/1ngKUe7ijYjkF9htCp1ppmZMQtFiBsqAy/view?usp=sharing" download className="resume-btn">
+          <i className="fa fa-download"></i> ⬇️ Download My Resume
         </a>
       </div>
     </div>
@@ -129,7 +129,7 @@ const App = () => {
         <div className="projects">
           <div className="project-card">
             <h3>1. 🤖📧 GenAI Cold Email Generator</h3>
-            <p>RAG-based Cold Email Generator using Llama 3.1, LangChain, ChromaDB, and Streamlit that helps software service companies automatically generate targeted outreach emails by extracting skills from job postings and matching relevant portfolios.</p>
+            <p>RAG-based Cold Email Generator using Llama 3.1, LangChain, ChromaDB, and Streamlit that helps software companies send cold emails to acquire projects by extracting data from their potential clients’ job postings and matching the required skills with their portfolios.</p>
             <a href="https://github.com/nahianfariha/GenAI-Cold-Email-Generator.git">Repository</a>
           </div>
           <div className="project-card">
@@ -277,7 +277,7 @@ const App = () => {
           <li>Database: PostgreSQL, ChromaDB</li>
           <li>Frameworks and Tools: Git, Github, React.js, Jupyter Notebook, VS Code, Google Colab, Latex Editor</li>
           <li>Machine Learning and AI: NumPy, TensorFlow, Pandas, Matplotlib, OpenCV, Machine Learning, Deep
-          Learning, Computer Vision, RAG</li>
+          Learning, Computer Vision, RAG, Langchain, Streamlit</li>
           <li>Others: Google Workspace, Figma, Adobe (Photoshop, Illustrator), Procreate, Responsive Web Design</li>
         </ul>
       </section>
@@ -324,7 +324,7 @@ their banking needs; cash management, customer service, and financial advisory.<
       I first explored machine learning during my undergraduate thesis, where I worked on social distance estimation using the YOLO Convolutional Neural Network during the pandemic.
     </p>
     <p>
-      After graduation, I explored diverse fields while continuing independent study. I founded <a class="dsc" href="https://nahianfariha.github.io/dotpicturesstudio/">Dot Pictures Studio,</a> where I worked for three years on graphic products, paintings, illustrations, UX/UI design, product designs, and 2D animations. Alongside my artistic work, I practiced coding, explored web development and user experience design, and studied machine learning through Andrew Ng's ML courses on Coursera. Gradually, I realized that the fulfillment I gained from tech and machine learning far outweighed what I felt through creative work. This made me determined to build a career where I can contribute to the field of machine learning. It has become a dream, and I want to be part of meaningful contributions in the research field of Machine Learning and AI. Therefore, I am actively looking for a research assistantship while planning to pursue a PhD.
+      After graduation, I explored diverse fields while continuing independent study. I founded <a class="dsc" href="https://nahianfariha.github.io/dotpicturesstudio/">Dot Pictures Studio,</a> where I worked for three years on graphic products, paintings, illustrations, UX/UI design, product designs, and 2D animations. Alongside my artistic work, I practiced coding, explored web development and user experience design, and studied machine learning through Andrew Ng's ML courses on Coursera. Gradually, I realized that the fulfillment I gained from tech and machine learning far outweighed what I felt through creative work. This made me determined to build a career where I can contribute to the field of machine learning.  Currently, I am independently studying ML and GenAI with hands-on projects, and I am determined to pursue a meaningful career in academia. 
     </p>
     <p>
       At present, I am working at Islami Bank Bangladesh PLC as an Agent Banking Desk Officer to gain practical experience in banking systems and money management, which I consider an essential life skill. I also chose this role because of its proximity to my home, which enables me to balance work with dedicated study time as I prepare for pursuing higher studies.
