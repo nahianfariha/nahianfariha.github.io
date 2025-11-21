@@ -74,8 +74,18 @@ const App = () => {
       </div>
 
       <div className="contact-links">
-        <a href="mailto:nahianfariha.cs@gmail.com"><i className="fas fa-envelope" alt="mail" ></i>📧</a>
-        <a href="tel:+8801673759691"><i className="fas fa-phone"  alt="phone"></i></a>
+        <a href="mailto:nahianfariha.cs@gmail.com" style={{ display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
+          <i className="fas fa-envelope" aria-hidden="true"></i>
+          <span className="fallback" style={{ display: 'none' }}>email</span>
+          </a>
+        <a 
+          href="tel:+8801673759691" 
+          style={{ display: 'inline-flex', alignItems: 'center', gap: '5px' }}
+          aria-label="Call +8801673759691"
+        >
+          <i className="fas fa-phone" aria-hidden="true"></i>
+          <span className="fallback" style={{ display: 'none' }}>+8801673759691</span>
+        </a>
         <a href="https://github.com/NahianFariha"><i className="fab fa-github"></i></a>
         <a href="https://linkedin.com/in/nahian-fariha"><i className="fab fa-linkedin"></i></a>
       </div>
