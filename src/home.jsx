@@ -74,14 +74,14 @@ const App = () => {
       </div>
 
       <div className="contact-links">
-        <a href="mailto:nahianfariha.cs@gmail.com"><i className="fas fa-envelope" ></i>📧</a>
-        <a href="tel:+8801673759691"><i className="fas fa-phone"  aria-hidden="true"></i>📞</a>
+        <a href="mailto:nahianfariha.cs@gmail.com"><i className="fas fa-envelope" alt="mail" ></i>📧</a>
+        <a href="tel:+8801673759691"><i className="fas fa-phone"  alt="phone"></i></a>
         <a href="https://github.com/NahianFariha"><i className="fab fa-github"></i></a>
         <a href="https://linkedin.com/in/nahian-fariha"><i className="fab fa-linkedin"></i></a>
       </div>
       <div className="resume-download">
         <a href="https://drive.google.com/file/d/1ngKUe7ijYjkF9htCp1ppmZMQtFiBsqAy/view?usp=sharing" download className="resume-btn">
-          <i className="fa fa-download"></i> ⬇️ Download My Resume
+          <i className="fa fa-download"></i> ⬇ Download My Resume
         </a>
       </div>
     </div>
