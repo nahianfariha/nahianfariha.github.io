@@ -320,18 +320,19 @@ their banking needs; cash management, customer service, and financial advisory.<
 
   {/* Text Section */}
   <div className="space-y-6 text-gray-800 leading-relaxed mb-10">
+   
     <p>
-      I first explored machine learning during my undergraduate thesis, where I worked on social distance estimation using the YOLO Convolutional Neural Network during the pandemic.
+I first engaged deeply with Machine Learning during my undergraduate thesis, where I developed a YOLO-based system to estimate social distancing during the COVID-19 pandemic. This project introduced me to computer vision, real-time inference, and end-to-end ML system design, sparking my long-term interest in AI research.
     </p>
     <p>
-      After graduation, I explored diverse fields while continuing independent study. I founded <a class="dsc" href="https://nahianfariha.github.io/dotpicturesstudio/">Dot Pictures Studio,</a> where I worked for three years on graphic products, paintings, illustrations, UX/UI design, product designs, and 2D animations. Alongside my artistic work, I practiced coding, explored web development and user experience design, and studied machine learning through Andrew Ng's ML courses on Coursera. Gradually, I realized that the fulfillment I gained from tech and machine learning far outweighed what I felt through creative work. This made me determined to build a career where I can contribute to the field of machine learning.  Currently, I am independently studying ML and GenAI with hands-on projects, and I am determined to pursue a meaningful career in academia. 
+      After graduation, I explored interdisciplinary fields that strengthened my problem-solving and design abilities. I founded Dot Pictures Studio, producing graphic and UX/UI design work while independently studying Machine Learning and full-stack web development. Through these projects, I gained hands-on experience building ML systems, including recommendation models and regression-based solutions. At the same time, attending an international workshop helped me discover a growing interest in the reliability and trustworthiness of large language models, shaping my research focus.
     </p>
     <p>
-      At present, I am working at Islami Bank Bangladesh PLC as an Agent Banking Desk Officer to gain practical experience in banking systems and money management, which I consider an essential life skill. I also chose this role because of its proximity to my home, which enables me to balance work with dedicated study time as I prepare for pursuing higher studies.
-    </p>
-    <p>
-      Today, I’m on a focused path: learning every day, growing my skills, and aiming to contribute to research that shapes the future of AI. Additionally, I love diversity 🌍, continuous learning, and prioritize nature as well as mental and physical health.
-    </p>
+Currently, I am working at Islami Bank Bangladesh PLC as an Agent Banking Desk Officer to gain practical experience in banking systems and financial operations, which I consider an essential life skill. I plan to leave this position in December to dedicate myself fully to research and academic preparation for a Ph.D. I am now focused on strengthening my knowledge in Machine Learning, exploring new ideas through hands-on projects and research papers, and deepening my understanding of LLM reliability and evaluation.
+     </p>
+     <p>
+      Looking ahead, I aim to pursue a career in academia, dedicating myself to long-term research and teaching, advancing AI-driven solutions, mentoring future researchers, and contributing to innovations that can have a lasting impact on both the scientific community and society.
+     </p>
   </div>
 
   {/* Slideshow + Social Section */}
