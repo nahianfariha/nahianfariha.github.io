@@ -322,17 +322,14 @@ their banking needs; cash management, customer service, and financial advisory.<
   <div className="space-y-6 text-gray-800 leading-relaxed mb-10">
    
     <p>
-I first engaged deeply with Machine Learning during my undergraduate thesis, where I developed a YOLO-based system to estimate social distancing during the COVID-19 pandemic. This project introduced me to computer vision, real-time inference, and end-to-end ML system design, sparking my long-term interest in AI research.
+     My first academic exposure to Artificial Intelligence was during a three-hour lecture in my undergraduate course, where the professor’s presentation on intelligent systems completely held my attention. That moment sparked my curiosity about how machines learn and reason, and my strong performance in the course further deepened my interest. During the COVID-19 period, I conducted my undergraduate thesis using the YOLO convolutional neural network to estimate social distancing, which introduced me to computer vision, real-time inference, and end-to-end ML system design.
     </p>
     <p>
-      After graduation, I explored interdisciplinary fields that strengthened my problem-solving and design abilities. I founded Dot Pictures Studio, producing graphic and UX/UI design work while independently studying Machine Learning and full-stack web development. Through these projects, I gained hands-on experience building ML systems, including recommendation models and regression-based solutions. At the same time, attending an international workshop helped me discover a growing interest in the reliability and trustworthiness of large language models, shaping my research focus.
-    </p>
+After graduation, I explored interdisciplinary fields that strengthened both my technical and creative abilities. I founded Dot Pictures Studio, producing paintings, graphics and UX/UI design work while independently studying Machine Learning and full-stack web development. These experiences allowed me to apply ML concepts to real-world projects, including recommendation models and regression-based solutions. Later, attending an international workshop led me to explore the reliability and trustworthiness of large language models, shaping my current research focus.    </p>
     <p>
-Currently, I am working at Islami Bank Bangladesh PLC as an Agent Banking Desk Officer to gain practical experience in banking systems and financial operations, which I consider an essential life skill. I plan to leave this position in December to dedicate myself fully to research and academic preparation for a Ph.D. I am now focused on strengthening my knowledge in Machine Learning, exploring new ideas through hands-on projects and research papers, and deepening my understanding of LLM reliability and evaluation.
-     </p>
+I worked at Islami Bank Bangladesh PLC until December 2025, mainly to gain personal growth and real-world exposure. During this time, I learned practical money management, observed how banking software systems operate, and understood which financial packages or schemes genuinely benefit customers. Fully dedicating myself now to research and academic preparation for a Ph.D., I am focused on strengthening my knowledge in Machine Learning, exploring new ideas through hands-on projects and research papers, and deepening my understanding of LLM reliability and evaluation.     </p>
      <p>
-      Looking ahead, I aim to pursue a career in academia, dedicating myself to long-term research and teaching, advancing AI-driven solutions, mentoring future researchers, and contributing to innovations that can have a lasting impact on both the scientific community and society.
-     </p>
+Looking ahead, I aim to pursue a career in academia, dedicating myself to long-term research and teaching, advancing AI-driven solutions, mentoring future researchers, and contributing to innovations that can have a lasting impact on both the scientific community and society.     </p>
   </div>
 
   {/* Slideshow + Social Section */}
