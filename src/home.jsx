@@ -95,7 +95,7 @@ const App = () => {
         <h2>Education</h2>
         <div className="flex justify-between items-center">
           <p><strong>B.Sc. in Computer Science and Engineering</strong></p>
-          <span className="text-gray-600">Oct 2016 - Oct 2020</span>
+          <span className="text-gray-600">Aug 2016 - Sept 2021</span>
         </div>
         <div className="flex justify-between items-center">
         <p><a class="dsc" href="https://youtu.be/fs7RNN1xAjI?si=723nctNjyD8t9SKe" >International Islamic University Chittagong</a> </p>
