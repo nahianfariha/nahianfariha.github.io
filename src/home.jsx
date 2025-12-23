@@ -69,7 +69,7 @@ const App = () => {
 
       <div className="about-text">
         <p>
-          I am a Computer Science and Engineering graduate with a strong research interest in Machine Learning, Generative AI, and Computer Vision.
+          I am a Computer Science and Engineering graduate with a strong research interest in Generative AI (Trustworthy LLMs), Machine Learning, and Computer Vision.
         </p>
       </div>
 
@@ -101,7 +101,6 @@ const App = () => {
         <p><a class="dsc" href="https://youtu.be/fs7RNN1xAjI?si=723nctNjyD8t9SKe" >International Islamic University Chittagong</a> </p>
         <span><p><a className="text-gray-600" href="https://drive.google.com/file/d/1auIYb2ZJmGV-fidB6-CtW4TrsxPJvZEL/view?usp=sharing"> Certificate</a></p></span>
         </div>
-        <p>CGPA : 3.192 </p>
       </section>
 
 {/* Research Experience */}
