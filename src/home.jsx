@@ -12,6 +12,34 @@ import IIUC from "./images/iiucpic.webp";
 
 const App = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+const newsItems = [
+  {
+    date: "Jan 2026",
+    title: "Open to Research Opportunities.",
+    description:
+      "Actively looking for research assistant positions (remote or on-campus). Research Interest : Generative AI (Trustworthy LLMs). Previous Experience : ML/DL and Computer Vision.",
+    icon: "🔬",
+    link: "https://www.linkedin.com/in/nahian-fariha/"
+  },
+  {
+    date: "July 2025",
+    title: "Attended Workshop on LLMs at Southern Illinois University. (Online)",
+    description:
+      "Participated in the Nexus workshop focusing on Large Language Models, ethical AI, and responsible innovation.",
+    icon: "🔗",
+    link: "https://www.linkedin.com/posts/nahian-fariha_ai-llms-machinelearning-activity-7329108149565562881-mRtM?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAADd8WnoB4n-f9f6hjwVDCK03P3UXAdI5kg4"
+  },
+  {
+    date: "Sept 2022",
+    title: "Undergraduate Convocation – B.Sc. in Computer Science & Engineering",
+    description:
+      "Officially graduated with a Bachelor of Science in Computer Science & Engineering from International Islamic University Chittagong (IIUC) at the university’s 5th Convocation.",
+    icon: "🎓",
+    link: "https://www.linkedin.com/posts/nahian-fariha_11sept2022-5thconvocation-officiallygraduated-activity-6976607774340247552-jAu9?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAADd8WnoB4n-f9f6hjwVDCK03P3UXAdI5kg4"
+  }
+];
+
+
 
   return (
     <div className="App">
@@ -37,7 +65,8 @@ const App = () => {
           <a href="#courses">Courses</a>
           <a href="#skills">Skills</a>
           <a href="#work">Work Experience</a>
-          <a href="#extra">My Journey</a>
+          <a href="#extra">Extra</a>
+          <a href="#news">News</a>
         </div>
       </nav>
 
@@ -113,10 +142,13 @@ const App = () => {
     <p><strong>Real-time Social Distance Estimation using YOLO Convolutional Neural Network and Euclidean Distance.</strong></p>
   
         <ul>
-          <li> Proposed a real-time system to estimate social distancing by analyzing video footage from six distinct environments: good quality, fuzzy, daylight, nightlight, less populated, and crowded.</li>
-          <li> The objective of this research was to estimate social distance in real-time and giving a tracking accuracy in percentage based on six different environments.</li>
-          <li> Used YOLO (You Only Look Once) pretrained on the COCO dataset to detect people and draw bounding boxes; computed centroids and applied Euclidean distance to measure interpersonal spacing.</li>
-          <li>Achieved 90% tracking accuracy across varied conditions, supporting real-time public safety monitoring in low and high visibility environments.</li>
+          <li> Proposed a real-time system to estimate social distancing by analyzing video footage from six distinct
+environments: good quality, fuzzy, daylight, nightlight, less populated, and crowded.</li>
+          <li> Implemented person detection using YOLOv3 pretrained on the COCO dataset; computed centroids and
+applied Euclidean distance to measure interpersonal spacing.</li>
+          <li> Achieved 90 percent tracking accuracy across varied conditions, demonstrating robustness in low- and high-
+visibility scenarios.</li>
+          <li>Contributed to research on real-time computer vision methods for public safety applications.</li>
           <li>Tech : Python, OpenCV, YOLOv3, COCO Dataset, NumPy.</li>
         </ul>
         <a class="dsc" href="https://drive.google.com/file/d/13Zvm6vAlXyL5QDvMjuy_luiB1LplvvK7/view?usp=sharing">CLICK HERE TO READ MY THESIS BOOK</a>
@@ -305,7 +337,7 @@ their banking needs; cash management, customer service, and financial advisory.<
       </section>
       
 
-     {/* Extra Curricular & My Journey */}
+     {/* Extra Curricular */}
 <section id="extra" className="section alt">
   <h2 className="mb-8 text-3xl font-semibold text-gray-900">
     Volunteering and Extracurricular Activities
@@ -316,20 +348,43 @@ their banking needs; cash management, customer service, and financial advisory.<
     <li>Active volunteer in university and community events, demonstrating teamwork and leadership.</li>
     <li>Art Practitioner and business owner.</li>
   </ul>
+</section>
 
-  {/* Text Section */}
-  <div className="space-y-6 text-gray-800 leading-relaxed mb-10">
-   
-    <p>
-     My first academic exposure to Artificial Intelligence was during a three-hour lecture in my undergraduate course, where the professor’s presentation on intelligent systems completely held my attention. That moment sparked my curiosity about how machines learn and reason, and my strong performance in the course further deepened my interest. During the COVID-19 period, I conducted my undergraduate thesis using the YOLO convolutional neural network to estimate social distancing, which introduced me to computer vision, real-time inference, and end-to-end ML system design.
-    </p>
-    <p>
-After graduation, I explored interdisciplinary fields that strengthened both my technical and creative abilities. I founded Dot Pictures Studio, producing paintings, graphics and UX/UI design work while independently studying Machine Learning and full-stack web development. These experiences allowed me to apply ML concepts to real-world projects, including recommendation models and regression-based solutions. Later, attending an international workshop led me to explore the reliability and trustworthiness of large language models, shaping my current research focus.    </p>
-    <p>
-I worked at Islami Bank Bangladesh PLC until December 2025, mainly to gain personal growth and real-world exposure. During this time, I learned practical money management, observed how banking software systems operate, and understood which financial packages or schemes genuinely benefit customers. Fully dedicating myself now to research and academic preparation for a Ph.D., I am focused on strengthening my knowledge in Machine Learning, exploring new ideas through hands-on projects and research papers, and deepening my understanding of LLM reliability and evaluation.     </p>
-     <p>
-Looking ahead, I aim to pursue a career in academia, dedicating myself to long-term research and teaching, advancing AI-driven solutions, mentoring future researchers, and contributing to innovations that can have a lasting impact on both the scientific community and society.     </p>
+  {/* News Section */}
+  <section id="news" className="section">
+  <h2>News & Recent Activities</h2>
+
+  <div className="news-list">
+    {newsItems.map((item, index) => (
+      <a
+        key={index}
+        href={item.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="news-item-link"
+        aria-label={item.title}
+      >
+        <div className="news-item">
+          <div className="news-date">{item.date}</div>
+
+          <div className="news-content">
+            <h4>
+              {item.title}
+              {index === 0 && <span className="news-badge">NEW</span>}
+            </h4>
+            <p>{item.description}</p>
+          </div>
+
+          <div className="news-action">{item.icon || "➡️"}</div>
+        </div>
+      </a>
+    ))}
   </div>
+</section>
+
+
+   
+    
 
   {/* Slideshow + Social Section */}
   <div className="flex flex-col items-center justify-between gap-10 mt-12">
@@ -361,14 +416,13 @@ Looking ahead, I aim to pursue a career in academia, dedicating myself to long-t
       animation: fadeSlide 8s infinite ease-in-out;
     }
   `}</style>
-</section>
 
 
 
 
       {/* Contact */}
       <footer id="contact" className="footer">
-        <p>“CREATION AND PROBLEM-SOLVING BRING ME JOY—THEY’RE AT THE HEART OF EVERYTHING I DO.”</p>
+        <p>“CREATION AND PROBLEM-SOLVING BRING ME JOY. THEY’RE AT THE HEART OF EVERYTHING I DO.”</p>
         <p>Reach me anytime at <a href="mailto:nahianfariha.cs@gmail.com">nahianfariha.cs@gmail.com</a></p>
       </footer>
     </div>
