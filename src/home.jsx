@@ -17,7 +17,7 @@ const newsItems = [
     date: "Jan 2026",
     title: "Open to Research Opportunities.",
     description:
-      "Actively looking for research assistant positions (remote or on-campus). Research Interest : Generative AI (Trustworthy LLMs). Previous Experience : ML/DL and Computer Vision.",
+      "Actively looking for research assistant positions. Research Interest : Generative AI (Trustworthy LLMs). Started preliminary work on emotion detection research using Trustworthy LLMs.  Previous Experience : ML/DL and Computer Vision.",
     icon: "🔬",
     link: "https://www.linkedin.com/in/nahian-fariha/"
   },
@@ -59,11 +59,11 @@ const newsItems = [
         {/* Desktop Links */}
         <div className="nav-links">
           <a href="#about">About</a>
-          <a href="#education">Education</a>
           <a href="#research">Research</a>
           <a href="#projects">Projects</a>
           <a href="#courses">Courses</a>
           <a href="#skills">Skills</a>
+          <a href="#education">Education</a>
           <a href="#work">Work Experience</a>
           <a href="#extra">Extra</a>
           <a href="#news">News</a>
@@ -73,14 +73,14 @@ const newsItems = [
       {/* Sidebar menu for mobile */}
       <div className={`mobile-menu ${menuOpen ? "active" : ""}`}>
         <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
-        <a href="#education" onClick={() => setMenuOpen(false)}>Education</a>
         <a href="#research" onClick={() => setMenuOpen(false)}>Research</a>
         <a href="#projects" onClick={() => setMenuOpen(false)}>Projects</a>
         <a href="#courses" onClick={() => setMenuOpen(false)}>Courses</a>
         <a href="#skills" onClick={() => setMenuOpen(false)}>Skills</a>
+        <a href="#education" onClick={() => setMenuOpen(false)}>Education</a>
         <a href="#work" onClick={() => setMenuOpen(false)}>Work Experience</a>
-        <a href="#extra" onClick={() => setMenuOpen(false)}>Extracurricular</a>
-        <a href="#extra" onClick={() => setMenuOpen(false)}>My Journey</a>
+        <a href="#extra" onClick={() => setMenuOpen(false)}>Extra</a>
+        <a href="#extra" onClick={() => setMenuOpen(false)}>News</a>
       </div>
 
      <section id="about" className="about-section">
@@ -118,23 +118,20 @@ const newsItems = [
 </section>
 
 
-
-      {/* Education */}
-      <section id="education" className="section alt">
-        <h2>Education</h2>
-        <div className="flex justify-between items-center">
-          <p><strong>B.Sc. in Computer Science and Engineering</strong></p>
-          <span className="text-gray-600">Aug 2016 - Sept 2021</span>
-        </div>
-        <div className="flex justify-between items-center">
-        <p><a class="dsc" href="https://youtu.be/fs7RNN1xAjI?si=723nctNjyD8t9SKe" >International Islamic University Chittagong</a> </p>
-        <span><p><a className="text-gray-600" href="https://drive.google.com/file/d/1auIYb2ZJmGV-fidB6-CtW4TrsxPJvZEL/view?usp=sharing"> Certificate</a></p></span>
-        </div>
-      </section>
-
 {/* Research Experience */}
       <section id="research" className="section">
         <h2>Research Experience</h2>
+
+{/* Ongoing Research (on top of section) */}
+        <div className="mb-6">
+          <h3 className="text-green-600 font-bold">Ongoing Research</h3>
+          <p><strong>Emotion Detection in Text using Linguistic and Contextual Cues</strong></p>
+          <ul>
+            <li>Currently in the primary stage of exploring linguistic and contextual patterns influencing emotion recognition in textual data using Trustworthy LLM approaches.</li>
+            <li><strong>Tools:</strong> Python, Transformers (Hugging Face), Pandas, Scikit-learn</li>
+          </ul>
+        </div>
+
         <div className="flex justify-between items-center">
     <p><strong>Undergraduate Thesis</strong></p>
     <span className="text-gray-600">2020 - 2021 </span>
@@ -313,10 +310,23 @@ visibility scenarios.</li>
         </ul>
       </section>
 
+      {/* Education */}
+      <section id="education" className="section alt">
+        <h2>Education</h2>
+        <div className="flex justify-between items-center">
+          <p><strong>B.Sc. in Computer Science and Engineering</strong></p>
+          <span className="text-gray-600">Aug 2016 - Sept 2021</span>
+        </div>
+        <div className="flex justify-between items-center">
+        <p><a class="dsc" href="https://youtu.be/fs7RNN1xAjI?si=723nctNjyD8t9SKe" >International Islamic University Chittagong</a> </p>
+        <span><p><a className="text-gray-600" href="https://drive.google.com/file/d/1auIYb2ZJmGV-fidB6-CtW4TrsxPJvZEL/view?usp=sharing"> Certificate</a></p></span>
+        </div>
+      </section>
+
       {/* Work Experience */}
       <section id="work" className="section">
         <h2>Work Experience</h2>
-        <p><strong><a class="bla" href="https://www.linkedin.com/company/islamibankbangladeshplc/">1. Agent Banking Desk Officer - Islami Bank Bangladesh PLC</a> </strong>   [Sept 2025 - Present]</p>
+        <p><strong><a class="bla" href="https://www.linkedin.com/company/islamibankbangladeshplc/">1. Agent Banking Desk Officer - Islami Bank Bangladesh PLC</a> </strong>   [Sept 2025 - Dec 2025]</p>
         <ul>
         <li>Hands-on experience with banking software for account management and financial transactions, ensuring
 accuracy and compliance.</li>
@@ -346,7 +356,14 @@ their banking needs; cash management, customer service, and financial advisory.<
   <ul className="list-disc list-inside mb-8 space-y-2 text-gray-800">
     <li>Member of IIUC Photography Club and IIUC Computer Club.</li>
     <li>Active volunteer in university and community events, demonstrating teamwork and leadership.</li>
-    <li>Art Practitioner and business owner.</li>
+    <li>
+      <a
+        href="http://instagram.com/dotpicturesstudio"   // or an external link like "https://your-art-site.com"
+        className="font-medium text-black hover:underline"
+      >
+        Art Practitioner and business owner.
+      </a> 
+    </li>
   </ul>
 </section>
 
