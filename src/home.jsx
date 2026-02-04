@@ -125,9 +125,8 @@ const newsItems = [
 {/* Ongoing Research (on top of section) */}
         <div className="mb-6">
           <h3 className="text-green-600 font-bold">Ongoing Research</h3>
-          <p><strong>Emotion Detection in Text using Linguistic and Contextual Cues</strong></p>
+          <p><strong>Currently in the primary stage of exploring multimodal AI approaches for understanding medical data using trustworthy and interpretable machine learning frameworks.</strong></p>
           <ul>
-            <li>Currently in the primary stage of exploring linguistic and contextual patterns influencing emotion recognition in textual data using Trustworthy LLM approaches.</li>
             <li><strong>Tools:</strong> Python, Transformers (Hugging Face), Pandas, Scikit-learn</li>
           </ul>
         </div>
