@@ -98,7 +98,7 @@ const newsItems = [
 
       <div className="about-text">
         <p>
-          I am a Computer Science and Engineering graduate with a strong research interest in Generative AI (Trustworthy AI / LLMs), Machine Learning, and Computer Vision.
+          I am a Computer Science and Engineering graduate with a strong research interest in  Multimodal AI, Trustworthy AI/LLMs, Machine Learning, Computer Vision.
         </p>
       </div>
 
