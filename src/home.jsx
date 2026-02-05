@@ -125,7 +125,7 @@ const newsItems = [
 {/* Ongoing Research (on top of section) */}
         <div className="mb-6">
           <h3 className="text-green-600 font-bold">Ongoing Research</h3>
-          <p><strong>Currently in the primary stage of exploring multimodal AI approaches for understanding medical data using trustworthy and interpretable machine learning frameworks.</strong></p>
+          <p><strong>Currently exploring research on multimodal AI in the medical domain, with a parallel focus on developing trustworthy AI frameworks. (Details are confidential; will be shared once the work is published.)</strong></p>
           <ul>
             <li><strong>Tools:</strong> Python, Transformers (Hugging Face), Pandas, Scikit-learn</li>
           </ul>
