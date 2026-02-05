@@ -109,7 +109,7 @@ const newsItems = [
         <a href="https://linkedin.com/in/nahian-fariha"><i className="fab fa-linkedin"></i></a>
       </div>
       <div className="resume-download">
-        <a href="https://drive.google.com/file/d/1DSPccMu9aUpaay1b9Y8thPp8ROOWQFxY/view?usp=sharing" download className="resume-btn">
+        <a href="https://drive.google.com/file/d/1lGglCFqqGFzeJ3U-wcYXAzy5f8boxhUt/view?usp=sharing" download className="resume-btn">
           <i className="fa fa-download"></i> Download My Resume
         </a>
       </div>
