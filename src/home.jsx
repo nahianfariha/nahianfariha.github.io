@@ -122,12 +122,12 @@ const App = () => {
       <section id="research" className="section">
         <h2>Research Experience</h2>
 
-        {/* Ongoing Research (on top of section) */}
-        <div className="mb-6">
+       {/* {/* Ongoing Research (on top of section) 
+       /* <div className="mb-6">
           <h3 className="text-green-600 font-bold">Ongoing Research</h3>
           <p><strong>Currently exploring research on multimodal AI in the medical domain, with a parallel focus on developing trustworthy AI frameworks. (Details are confidential; will be shared once the work is published.)</strong></p>
 
-        </div>
+        </div> */}
 
         <div className="flex justify-between items-center">
           <p><strong>Undergraduate Thesis</strong></p>
