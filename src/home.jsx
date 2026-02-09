@@ -17,7 +17,7 @@ const App = () => {
       date: "Jan 2026",
       title: "Open to Research Opportunities.",
       description:
-        "Actively looking for research assistant positions. Research Interest : Generative AI (Trustworthy LLMs). Started preliminary work on emotion detection research using Trustworthy LLMs.  Previous Experience : ML/DL and Computer Vision.",
+        "Actively looking for research assistant positions. Research Interests : Multimodal AI, Trustworthy AI, Machine Learning and Computer Vision. I have initiated preliminary research related to Trustworthy AI in the medical domain and am planning to expand this work to the business domain. Previous Experience : ML/DL and Computer Vision.",
       icon: "🔬",
       link: "https://www.linkedin.com/in/nahian-fariha/"
     },
