@@ -355,8 +355,13 @@ Developed a benchmark framework for hallucination detection in large language mo
         <strong>Restaurant Profit Estimator</strong> — A predictive analytics project that estimates restaurant profits based on city population data. Built with Python, NumPy, Matplotlib, and Linear Regression implemented from scratch in Jupyter Notebook.
         <a href="https://github.com/nahianfariha/Restaurant-Profit-Estimator-using-Linear-Regression-Model">Repository</a>
       </li>
+      <li>
+        <strong>Click to see More Projects</strong>
+        <a href="https://github.com/nahianfariha/Machine-Learning-and-Ai.git">Repository</a>
+      </li>
     </ul>
   </div>
+
 
   {/* SKILLS (FULL VERSION LIKE PORTFOLIO) */}
   <div className="research-card">
