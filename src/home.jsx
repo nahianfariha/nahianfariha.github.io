@@ -1,443 +1,498 @@
-import React, { useState } from "react";
+
+import React, { useState, useEffect } from "react";
 import "./App.css";
-import NF from "./images/nf.webp";
-import NF1 from "./images/nf1.webp";
-import NF2 from "./images/nf2.webp";
-import NF3 from "./images/nf3.webp";
-import NF5 from "./images/nf5.webp";
-import NF7 from "./images/nf7.webp";
-import NF8 from "./images/nf8.webp";
-import IIUC from "./images/iiucpic.webp";
 
+import NF from "./images/nf9.webp";
 
+import img1 from "./images/img1.jpg";
+import img2 from "./images/img2.jpg";
+import img3 from "./images/iiucpic.webp";
+import img4 from "./images/nf3.webp";
+import img5 from "./images/nf1.webp";
+import img6 from "./images/nf2.webp";
+import img7 from "./images/nf5.webp";
+import img8 from "./images/nf7.webp";
+import img9 from "./images/nf8.webp";
 const App = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const newsItems = [
+  const [slideIndex, setSlideIndex] = useState(0);
+
+  const eduImages = [img3, img4,img5, img6,img7, img8, img9];
+
+
+  // ✅ SLIDESHOW FIXED
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSlideIndex((prev) => (prev + 1) % eduImages.length);
+    }, 2500);
+
+    return () => clearInterval(interval);
+  }, [eduImages.length]);
+
+
+
+const newsItems = [
+
+  {
+    text: "Presented my current research work on 1st AI & Business Online Conference hosted by Professor Minh Nguyen, (Florida Atlantic University), on May, 2026.",
+    link: "https://www.linkedin.com/feed/update/urn:li:activity:7459069227434397696/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADd8WnoB4n-f9f6hjwVDCK03P3UXAdI5kg4",
+    img: img1,
+  },
+  {
+    text: "Attended LLMs Nexus: Bridging Technical Innovation and Ethical Horizons, hosted by Southern Illinois University, Carbondale, on July, 2025.",
+    link: "https://www.linkedin.com/posts/nahian-fariha_ai-llms-machinelearning-share-7329108148059811841-D_FA?utm_source=share&utm_medium=member_desktop&rcm=ACoAADd8WnoB4n-f9f6hjwVDCK03P3UXAdI5kg4",
+    img: img2,
+  },
+];
+
+  const projects = [
     {
-      date: "Jan 2026",
-      title: "Open to Research Opportunities.",
-      description:
-        "Actively looking for research assistant positions. Research Interests : Multimodal AI, Trustworthy AI, Machine Learning and Computer Vision.",
-      icon: "🔬",
-      link: "https://www.linkedin.com/in/nahian-fariha/"
+      title: "GenAI Cold Email Generator",
+      desc: "RAG-based cold email generator using Llama 3.1, LangChain, ChromaDB, and Streamlit.",
+      link: "https://github.com/nahianfariha/GenAI-Cold-Email-Generator.git",
     },
     {
-      date: "July 2025",
-      title: "Attended Workshop on LLMs at Southern Illinois University. (Online)",
-      description:
-        "Participated in the Nexus workshop focusing on Large Language Models, ethical AI, and responsible innovation.",
-      icon: "🔗",
-      link: "https://www.linkedin.com/posts/nahian-fariha_ai-llms-machinelearning-activity-7329108149565562881-mRtM?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAADd8WnoB4n-f9f6hjwVDCK03P3UXAdI5kg4"
+      title: "Hallucination Detection Benchmark",
+      desc: "Structured benchmark and evaluation framework for factual consistency in LLM outputs.",
+      link: "#",
     },
     {
-      date: "Sept 2022",
-      title: "Undergraduate Convocation – B.Sc. in Computer Science & Engineering",
-      description:
-        "Officially graduated with a Bachelor of Science in Computer Science & Engineering from International Islamic University Chittagong (IIUC) at the university’s 5th Convocation.",
-      icon: "🎓",
-      link: "https://www.linkedin.com/posts/nahian-fariha_11sept2022-5thconvocation-officiallygraduated-activity-6976607774340247552-jAu9?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAADd8WnoB4n-f9f6hjwVDCK03P3UXAdI5kg4"
-    }
+      title: "Real-Time Social Distance Estimation",
+      desc: "YOLOv3-based real-time social distancing monitoring system.",
+      link: "https://github.com/nahianfariha/REAL-TIME-SOCIAL-DISTANCE-ESTIMATION-USING-YOLO-CONVOLUTIONAL-NEURAL-NETWORK-AND-EUCLIDEAN-DISTANCE.git",
+    },
+    {
+      title: "Movie Recommendation System",
+      desc: "Personalized recommendation engine using machine learning.",
+      link: "https://github.com/nahianfariha/Machine-Learning-and-Ai.git",
+    },
   ];
 
-
-
   return (
-    <div className="App">
-      {/* Navbar */}
-      <nav className="navbar">
-        {/* Hamburger (for mobile/tablet) */}
-        <button
-          className="hamburger"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          {menuOpen ? "✖" : "☰"}
-        </button>
+    <div className="app">
+      {/* NAVBAR */}
+      <header className="navbar">
+        <div className="logo">Nahian Fariha</div>
 
-        {/* Logo */}
-        <div className="nav-logo">Nahian Fariha</div>
-
-        {/* Desktop Links */}
-        <div className="nav-links">
+        <div className={`nav-links ${menuOpen ? "active" : ""}`}>
           <a href="#about">About</a>
           <a href="#research">Research</a>
-          <a href="#projects">Projects</a>
-          <a href="#courses">Courses</a>
-          <a href="#skills">Skills</a>
-          <a href="#education">Education</a>
-          <a href="#work">Work Experience</a>
-          <a href="#extra">Extra</a>
-          <a href="#news">News</a>
+          <a href="#more">More</a>
         </div>
-      </nav>
 
-      {/* Sidebar menu for mobile */}
-      <div className={`mobile-menu ${menuOpen ? "active" : ""}`}>
-        <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
-        <a href="#research" onClick={() => setMenuOpen(false)}>Research</a>
-        <a href="#projects" onClick={() => setMenuOpen(false)}>Projects</a>
-        <a href="#courses" onClick={() => setMenuOpen(false)}>Courses</a>
-        <a href="#skills" onClick={() => setMenuOpen(false)}>Skills</a>
-        <a href="#education" onClick={() => setMenuOpen(false)}>Education</a>
-        <a href="#work" onClick={() => setMenuOpen(false)}>Work Experience</a>
-        <a href="#extra" onClick={() => setMenuOpen(false)}>Extra</a>
-        <a href="#extra" onClick={() => setMenuOpen(false)}>News</a>
+        <button
+          className="menu-btn"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          ☰
+        </button>
+      </header>
+
+
+{/* NEWS FLOW */}
+
+<section className="news-section">
+  <div className="news-header">
+    <span className="news-label">NEWS:</span>
+
+    <div className="news-slider">
+      <div className="news-track">
+          {[
+              ...(window.innerWidth <= 900
+                ? newsItems
+                : [...newsItems, ...newsItems]),
+            ].map((item, index) => (
+          <a
+            key={index}
+            className="news-card"
+            href={item.link}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img src={item.img} alt="" className="news-img" />
+
+            <div className="news-text">
+              {item.text}
+            </div>
+          </a>
+        ))}
       </div>
+    </div>
+  </div>
+</section>
 
-      <section id="about" className="about-section">
-        <div className="about-content">
-          {/* Left side: Photo */}
-          <div className="about-left">
-            <div className="about-photo">
-              <img src={NF} alt="Nahian Fariha" />
-            </div>
+      {/* HERO */}
+      <section className="hero" id="about">
+        <div className="hero-left">
+          <img src={NF} alt="Nahian Fariha" className="profile-img" />
+
+          <div className="socials">
+            <a href="mailto:nahianfariha.cs@gmail.com">Email</a>
+            <a href="https://github.com/NahianFariha">GitHub</a>
+            <a href="https://linkedin.com/in/nahian-fariha">LinkedIn</a>
+          </div>
+          <div className="socials" >
+            <a href="https://scholar.google.com/citations?hl=en&user=o_MFW1EAAAAJ&view_op=list_works&authuser=1&gmla=AIqSsVtwEeR_XyGEHSTpwJJpSktz2NQbhl9FgoON_boTKovWXtoP1ZdfP2W9BFio-e6Aq0yq815QUR4t_ILsFKzH">Google Scholar</a>
+            <a href="https://leetcode.com/u/NahianFariha/">LeetCode</a>
           </div>
 
-          {/* Right side: Name + Text + Icons */}
-          <div className="about-right">
-            <h2 className="profile-name">Nahian Fariha</h2>
+          <a
+            className="resume-btn"
+            href="https://drive.google.com/file/d/1n2XsW8g2Y0wqufb0xY-hI5zj_CeF78zS/view?usp=sharing"
+          >
+            Download CV
+          </a>
+        </div>
 
-            <div className="about-text">
-              <p>
-                I am a Computer Science and Engineering graduate with a strong research interest in  Multimodal AI, Trustworthy AI/LLMs, Machine Learning, and Computer Vision.
-              </p>
-            </div>
+        <div className="hero-right">
+          <p className="tagline">Researcher • AI and ML</p>
 
-            <div className="contact-links">
-              <a href="mailto:nahianfariha.cs@gmail.com"><i className="fas fa-envelope" ></i></a>
-              <a href="tel:+8801673759691"><i className="fas fa-phone"></i></a>
-              <a href="https://github.com/NahianFariha"><i className="fab fa-github"></i></a>
-              <a href="https://linkedin.com/in/nahian-fariha"><i className="fab fa-linkedin"></i></a>
-            </div>
-            <div className="resume-download">
-              <a href="https://drive.google.com/file/d/1lGglCFqqGFzeJ3U-wcYXAzy5f8boxhUt/view?usp=sharing" download className="resume-btn">
-                <i className="fa fa-download"></i> Download My Resume
-              </a>
-            </div>
+          <h1>
+            Nahian <span>Fariha</span>
+          </h1>
+
+          <div className="availability">
+            OPEN TO RESEARCH ASSISTANTSHIP POSITIONS
+          </div>
+
+          <p className="bio">
+            Computer Science and Engineering graduate currently engaged in AI and Machine Learning research.
+          </p>
+
+          <div className="research-tags">
+            <span>Natural Language Processing</span>
+            <span>Trustworthy AI</span>
+            <span>Multimodal AI</span>
+            <span>Machine Learning</span>
+            <span>Generative AI</span>
+          </div>
+
+          <div className="current-research">
+            <h3>Current Research</h3>
+
+            <p>
+(Manuscript in Preparation) 
+Domain: AI in Business, Trustworthy AI, Hallucination in AI, Generative AI, LLMs.
+Developed a benchmark framework for hallucination detection in large language models by constructing a structured dataset and a systematic evaluation protocol to assess factual consistency in LLM-generated outputs.  
+            </p>
           </div>
         </div>
       </section>
 
 
-      {/* Research Experience */}
-      <section id="research" className="section">
-        <h2>Research Experience</h2>
 
-       {/* {/* Ongoing Research (on top of section) 
-       /* <div className="mb-6">
-          <h3 className="text-green-600 font-bold">Ongoing Research</h3>
-          <p><strong>Currently exploring research on multimodal AI in the medical domain, with a parallel focus on developing trustworthy AI frameworks. (Details are confidential; will be shared once the work is published.)</strong></p>
+      {/* RESEARCH */}
+     <section className="section" id="research">
+  <div className="section-title">
+    <span>Research</span>
+  </div>
 
-        </div> */}
+  <div className="research-card">
+    <div className="research-top">
+      <h2>Ongoing Research (Manuscript in Preparation)</h2>
+      <p>2026</p>
+    </div>
 
-        <div className="flex justify-between items-center">
-          <p><strong>Undergraduate Thesis</strong></p>
-          <span className="text-gray-600">2020 - 2021 </span>
-        </div>
-        <p><strong>Real-time Social Distance Estimation using YOLO Convolutional Neural Network and Euclidean Distance.</strong></p>
+    <div className="research-content">
+      <ul>
+        <li>
+          <strong>Domain:</strong> AI in Business, Trustworthy AI,
+          Hallucination in AI, Generative AI, and Large Language Models
+          (LLMs).
+        </li>
 
-        <ul>
-          <li> Proposed a real-time system to estimate social distancing by analyzing video footage from six distinct
-            environments: good quality, fuzzy, daylight, nightlight, less populated, and crowded.</li>
-          <li> Implemented person detection using YOLOv3 pretrained on the COCO dataset; computed centroids and
-            applied Euclidean distance to measure interpersonal spacing.</li>
-          <li> Achieved 90 percent tracking accuracy across varied conditions, demonstrating robustness in low- and high-
-            visibility scenarios.</li>
-          <li>Contributed to research on real-time computer vision methods for public safety applications.</li>
-          <li>Tech : Python, OpenCV, YOLOv3, COCO Dataset, NumPy.</li>
-        </ul>
-        <a class="dsc" href="https://drive.google.com/file/d/13Zvm6vAlXyL5QDvMjuy_luiB1LplvvK7/view?usp=sharing">CLICK HERE TO READ MY THESIS BOOK</a>
+        <li>
+          Developed a benchmark framework for hallucination detection in
+          large language models by constructing a structured dataset and a
+          systematic evaluation protocol to assess factual consistency in
+          LLM-generated outputs.
+        </li>
+
+        <li>
+          Designed a multi-level annotation scheme and a quantitative
+          evaluation pipeline to identify and categorize hallucination
+          types.
+        </li>
+
+        <li>
+          Analyzed how prompting strategies and generation settings
+          influence hallucination behavior across multiple domains.
+        </li>
+
+        <li>
+          <strong>Tools & Methods:</strong> Python (Pandas, NumPy),
+          OpenAI GPT-4o mini, data preprocessing & sampling,
+          LLM-based text generation, manual annotation,
+          quantitative evaluation, Google Colab, VS Code,
+          Overleaf, and Google Sheets.
+        </li>
+      </ul>
+    </div>
+  </div>
+
+       <div className="research-card">
+  <div className="research-top">
+    <h2>Real-time Social Distance Estimation using YOLO Convolutional Neural Network and Euclidean Distance.</h2>
+    <p>(Undergraduate Thesis) - 2021</p>
+  </div>
+
+  <div className="research-content">
+    <ul>
+      <li>
+        Proposed a real-time system to estimate social distancing by
+        analyzing video footage from six distinct environments:
+        good quality, fuzzy, daylight, nightlight, less populated,
+        and crowded scenarios.
+      </li>
+
+      <li>
+        Implemented person detection using YOLOv3 pretrained on the
+        COCO dataset, computed centroids, and applied Euclidean
+        distance to measure interpersonal spacing.
+      </li>
+
+      <li>
+        Achieved 90% tracking accuracy across varied environmental
+        conditions, demonstrating robustness in both low-visibility
+        and high-density scenarios.
+      </li>
+
+      <li>
+        Contributed to research on real-time computer vision methods
+        for public safety and monitoring applications.
+      </li>
+
+      <li>
+        <strong>Tech Stack:</strong> Python, OpenCV, YOLOv3,
+        COCO Dataset, NumPy.
+      </li>
+
+      <li>
+        <a
+          href="https://drive.google.com/file/d/13Zvm6vAlXyL5QDvMjuy_luiB1LplvvK7/view"
+          target="_blank"
+          rel="noreferrer"
+        >
+          CLICK HERE TO READ MY THESIS BOOK →
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
       </section>
 
-      {/* Projects */}
-      <section id="projects" className="section alt">
-        <h2>Projects</h2>
-        <div className="projects">
-          <div className="project-card">
-            <h3>1. 🤖📧 GenAI Cold Email Generator</h3>
-            <p>RAG-based Cold Email Generator using Llama 3.1, LangChain, ChromaDB, and Streamlit that helps software companies send cold emails to acquire projects by extracting data from their potential clients’ job postings and matching the required skills with their portfolios.</p>
-            <a href="https://github.com/nahianfariha/GenAI-Cold-Email-Generator.git">Repository</a>
-          </div>
-          <div className="project-card">
-            <h3>2. 💻🌐 Dot Pictures Studio Responsive Website</h3>
-            <p>Developed a fully responsive web application for my arts and graphic business that helps me showcase and manage my work online, built with React, Tailwind CSS, and Node.js using Vite for modern, efficient deployment.</p>
-            <a href="https://nahianfariha.github.io/dotpicturesstudio">Client Side</a> & <a href="https://github.com/nahianfariha/dotpicturesstudio">Repository</a>
-          </div>
-          <div className="project-card">
-            <h3>3. 🤖🚶 REAL-TIME Social Distance Estimation using YOLO Convolutional Neural Network and Euclidean Distance</h3>
-            <p> Detects people in real-time videos using YOLOv3 and calculates distances with Euclidean metrics to help monitor safe distancing; completed during the COVID-19 outbreak.</p>
-            <a href="https://github.com/nahianfariha/REAL-TIME-SOCIAL-DISTANCE-ESTIMATION-USING-YOLO-CONVOLUTIONAL-NEURAL-NETWORK-AND-EUCLIDEAN-DISTANCE.git">Repository</a>
-          </div>
-          <div className="project-card">
-            <h3>4. 🔍🎬 Movie Recommender System using Machine Learning Techniques</h3>
-            <p>Helps users discover personalized movie suggestions based on their preferences, built with Python, data preprocessing, vectorization, and Streamlit.</p>
-            <a href="https://github.com/nahianfariha/Machine-Learning-and-Ai.git">Repository</a>
-          </div>
-          <div className="project-card">
-            <h3>5. 📈🧑‍💻 Restaurant Profit Estimator using Linear Regression Model</h3>
-            <p>A predictive analytics project that estimates restaurant profits based on city population data. Built with Python, NumPy, Matplotlib, and Linear Regression implemented from scratch in Jupyter Notebook.</p>
-            <a href="https://github.com/nahianfariha/Restaurant-Profit-Estimator-using-Linear-Regression-Model.git">Repository</a>
-          </div>
-          <div className="project-card">
-            <h3>6. 🌐👩‍💻 Academic Portfolio Website</h3>
-            <p>A professional academic portfolio website to showcase my projects, research, and achievements, built with React, Vite, Tailwind CSS, Node.js, and deployed on Github Pages.</p>
-            <a href="https://nahianfariha.github.io">Client Side</a> & <a href="https://github.com/nahianfariha/nahianfariha.github.io.git">Repository</a>
-          </div>
-        </div>
-      </section>
-      {/* Workshops & Certifications */}
-      <section id="courses" className="section">
-        <h2 className="text-xl font-bold mb-4">Workshops & Certifications</h2>
-        <ul className="space-y-6">
-          {/* Python for Everybody */}
-          <li>
-            <div className="flex justify-between items-start">
-              <p className="font-semibold">Workshop on LLMs - Nexus : Bridging Technical Innovation and Ethical Horizons - Southern Illinois University</p>
-              <div className="flex flex-col space-y-2 text-right">
-                <a className="text-blue-600 hover:underline" href="https://www.linkedin.com/posts/nahian-fariha_ai-llms-machinelearning-activity-7329108149565562881-mRtM?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAADd8WnoB4n-f9f6hjwVDCK03P3UXAdI5kg4">See More</a>
-              </div>
-            </div>
-          </li>
-          {/* Machine Learning Specialization */}
-          <li>
-            <div className="flex justify-between items-start">
-              <div>
-                <p className="font-semibold">Machine Learning Specialization - Coursera</p>
-                <ol className="list-decimal ml-6">
-                  <li>Course 1: Supervised Machine Learning: Regression and Classification</li>
-                  <li>Course 2: Advanced Learning Algorithms</li>
-                  <li>Course 3: Unsupervised Learning, Recommenders, Reinforcement Learning</li>
-                </ol>
-              </div>
-              <div className="flex flex-col space-y-2 text-right">
-                <a className="text-blue-600 hover:underline" href="https://www.coursera.org/account/accomplishments/specialization/NK4X1PQ35HO1">Certificate</a>
-                <a className="text-blue-600 hover:underline" href="https://github.com/nahianfariha/Machine-Learning-and-Ai.git">Repository</a>
+{/* =========================
+        MORE SECTION
+========================= */}
+<section className="section" id="more">
+  <div className="section-title">
+    <span>More</span>
+  </div>
 
-              </div>
-            </div>
-          </li>
+{/* EDUCATION */}
+<div className="research-card" id="education">
+  <div className="research-top">
+    <h2>Education</h2>
+  </div>
 
-          {/* Deep Learning Specialization */}
-          <li>
-            <div className="flex justify-between items-start">
-              <div>
-                <p className="font-semibold">Deep Learning Specialization - Coursera</p>
-                <ol className="list-decimal ml-6">
-                  <li>Course 1: Neural Networks and Deep Learning</li>
-                  <li>Course 2: Improving Deep Neural Networks: Hyperparameter Tuning, Regularization and Optimization</li>
-                  <li>Course 3: Structuring Machine Learning Projects</li>
-                  <li>Course 4: Convolutional Neural Networks</li>
-                  <li>Course 5: Sequence Models</li>
-                </ol>
-              </div>
-              <div className="flex flex-col space-y-2 text-right">
-                <a className="text-blue-600 hover:underline" href="https://www.coursera.org/account/accomplishments/specialization/7PB9Q3222FGP">Certificate</a>
-                <a className="text-blue-600 hover:underline" href="https://github.com/nahianfariha/Machine-Learning-and-Ai.git">Repository</a>
-              </div>
-            </div>
-          </li>
+  <div className="research-content edu-flex">
+    
+    {/* LEFT TEXT */}
+    <div>
+      <h3>B.Sc. in Computer Science & Engineering</h3>
+      <p>
+        <a href="https://iiuc.ac.bd/web/fse/cse" target="_blank" rel="noreferrer">
+          International Islamic University Chittagong
+        </a>
+      </p>
+      <span>
+        Autumn 2016 - Spring 2020 | Result Publication Date: 9th September 2021
+      </span>
+    </div>
 
-          {/* Python for Everybody */}
-          <li>
-            <div className="flex justify-between items-start">
-              <p className="font-semibold">Python for Everybody Specialization - Coursera</p>
-              <div className="flex flex-col space-y-2 text-right">
-                <a className="text-blue-600 hover:underline" href="https://www.coursera.org/account/accomplishments/specialization/25VF6NVCFV7C">Certificate</a>
-                <a className="text-blue-600 hover:underline" href="https://github.com/nahianfariha/Python-for-Everybody-All-Codes-5-Courses.git">Repository</a>
-              </div>
-            </div>
-          </li>
-          {/* Python for Everybody */}
-          <li>
-            <div className="flex justify-between items-start">
-              <p className="font-semibold">Linear Algebra for Machine Learning and Data Science - Coursera</p>
-              <div className="flex flex-col space-y-2 text-right">
-                <a className="text-blue-600 hover:underline" href="https://www.coursera.org/account/accomplishments/specialization/25VF6NVCFV7C">Certificate</a>
-              </div>
-            </div>
-          </li>
-          {/* Mastering DSA */}
-          <li>
-            <div className="flex justify-between items-start">
-              <p className="font-semibold">
-                Mastering Data Structures & Algorithms using C and C++ | Abdul Bari | - Udemy
-              </p>
-              <div className="flex flex-col space-y-2 text-right">
-                <a className="text-blue-600 hover:underline" href="https://github.com/nahianfariha/Udemy-Mastering-Data-Structures-Algorithms-Abdul-Bari.git">Repository</a>
-              </div>
-            </div>
-          </li>
+    {/* RIGHT SLIDESHOW */}
+    <div className="edu-slideshow">
+      <img
+        src={eduImages[slideIndex]}
+        alt="education slideshow"
+        className="edu-img"
+      />
+    </div>
 
-          {/* Full Stack Bootcamp */}
-          <li>
-            <div className="flex justify-between items-start">
-              <p className="font-semibold">
-                The Complete Full-Stack Web Development Bootcamp | Dr. Angela Yu | - Coursera
-              </p>
-              <div className="flex flex-col space-y-2 text-right">
-                <a className="text-blue-600 hover:underline" href="https://github.com/nahianfariha/Web-Development.git">Repository</a>
-              </div>
-            </div>
-          </li>
-
-          {/* Google UX */}
-          <li>
-            <div className="flex justify-between items-start">
-              <p className="font-semibold">Google UX Design Specialization - Coursera</p>
-              <div className="flex flex-col space-y-2 text-right">
-              </div>
-            </div>
-          </li>
-        </ul>
-      </section>
-
-
-
-
-      {/* Skills */}
-      <section id="skills" className="section alt">
-        <h2>Skills</h2>
-        <ul>
-          <li>Programming Languages: Python, C, C++, JavaScript</li>
-          <li>Web Development: React, Node.js, Tailwind CSS, Bootstrap, Flexbox, CSS Grid, Vite, Flowbite, HTML5, GitHub Pages</li>
-          <li>Database: PostgreSQL, ChromaDB</li>
-          <li>Frameworks and Tools: Git, Github, React.js, Jupyter Notebook, VS Code, Google Colab, Latex Editor</li>
-          <li>Machine Learning and AI: NumPy, TensorFlow, Pandas, Matplotlib, OpenCV, Machine Learning, Deep
-            Learning, Computer Vision, RAG, Langchain, Streamlit</li>
-          <li>Others: Google Workspace, Figma, Adobe (Photoshop, Illustrator), Procreate, Responsive Web Design</li>
-        </ul>
-      </section>
-
-      {/* Education */}
-      <section id="education" className="section alt">
-        <h2>Education</h2>
-        <div className="flex justify-between items-center">
-          <p><strong>B.Sc. in Computer Science and Engineering</strong></p>
-          <span className="text-gray-600">Aug 2016 - Sept 2021</span>
-        </div>
-        <div className="flex justify-between items-center">
-          <p><a class="dsc" href="https://youtu.be/fs7RNN1xAjI?si=723nctNjyD8t9SKe" >International Islamic University Chittagong</a> </p>
-          <span><p><a className="text-gray-600" href="https://drive.google.com/file/d/1auIYb2ZJmGV-fidB6-CtW4TrsxPJvZEL/view?usp=sharing"> Certificate</a></p></span>
-        </div>
-      </section>
-
-      {/* Work Experience */}
-      <section id="work" className="section">
-        <h2>Work Experience</h2>
-        <p><strong><a class="bla" href="https://www.linkedin.com/company/islamibankbangladeshplc/">1. Agent Banking Desk Officer - Islami Bank Bangladesh PLC</a> </strong>   [Sept 2025 - Dec 2025]</p>
-        <ul>
-          <li>Hands-on experience with banking software for account management and financial transactions, ensuring
-            accuracy and compliance.</li>
-          <li>Assisting clients with opening and managing accounts, including savings, current, fixed deposits (TDR),
-            and DPS; Supporting clients in financial product selection to meet
-            their banking needs; cash management, customer service, and financial advisory.</li></ul>
-        <div className="mb-8"></div>
-        <p><strong> <a class="bla" href="https://nahianfariha.github.io/dotpicturesstudio/">2. Founder and Artist - Dot Pictures Studio</a>    </strong> [May 2021 - April 2024]</p>
-        <ul>
-          <li>Created and sold a variety of customized products, including cartoon/customized banners, graphics, illustrations, painted products, paintings, UX/UI designs, and painted tote bags.</li>
-          <li>Managed he entire business process, from product design to delivery, ensuring customer satisfaction.</li>
-          <li>Handled social media marketing, client communications, and order management.</li></ul>
-        <div className="mb-8"></div>
-        <p><strong><a class="bla" href="https://www.linkedin.com/company/basis-bitm/">3. Web Application Development - Trainee, BASIS Institute of Technology and Management (BITM) </a>
-        </strong>  [Feb 2019 – April 2019]</p>
-        <ul>
-          <li>Collaborated in a 4-member team to develop two website projects, applying OOP basics, web fundamentals (HTML, CSS, JavaScript), and database management (MS SQL Server), while gaining hands-on experience with web programming and the full life cycle of real-world projects.</li></ul>
-      </section>
-
-
-      {/* Extra Curricular */}
-      <section id="extra" className="section alt">
-        <h2 className="mb-8 text-3xl font-semibold text-gray-900">
-          Volunteering and Extracurricular Activities
-        </h2>
-
-        <ul className="list-disc list-inside mb-8 space-y-2 text-gray-800">
-          <li>Member of IIUC Photography Club and IIUC Computer Club.</li>
-          <li>Active volunteer in university and community events, demonstrating teamwork and leadership.</li>
-          <li>
-            <a
-              href="http://instagram.com/dotpicturesstudio"   // or an external link like "https://your-art-site.com"
-              className="font-medium text-black hover:underline"
-            >
-              Art Practitioner and business owner.
-            </a>
-          </li>
-        </ul>
-      </section>
-
-      {/* News Section */}
-      <section id="news" className="section">
-        <h2>News & Recent Activities</h2>
-
-        <div className="news-list">
-          {newsItems.map((item, index) => (
-            <a
-              key={index}
-              href={item.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="news-item-link"
-              aria-label={item.title}
-            >
-              <div className="news-item">
-                <div className="news-date">{item.date}</div>
-
-                <div className="news-content">
-                  <h4>
-                    {item.title}
-                    {index === 0 && <span className="news-badge">NEW</span>}
-                  </h4>
-                  <p>{item.description}</p>
-                </div>
-
-                <div className="news-action">{item.icon || "➡️"}</div>
-              </div>
-            </a>
-          ))}
-        </div>
-      </section>
+  </div>
+</div>
 
 
 
 
 
-      {/* Slideshow + Social Section */}
-      <div className="flex flex-col items-center justify-between gap-10 mt-12">
-        {/* Right: Slideshow */}
-        <div className="relative w-full md:w-[600px] h-[300px] overflow-hidden rounded-2xl flex items-center justify-center">
-          {[IIUC, NF1, NF2, NF3, NF5, NF7, NF8].map((src, index) => (
-            <img
-              key={index}
-              src={src}
-              className="absolute inset-0 w-full h-full object-contain opacity-0 animate-fadeSlide"
-              style={{
-                animationDelay: `${index * 1}s`,
-                transition: "opacity 1s ease-in-out",
-              }}
-            />
-          ))}
-        </div>
-      </div>
+ {/* PROJECTS (EXTENDED VERSION - SAME STYLE AS PORTFOLIO) */}
+  <div className="research-card">
+    <h2>Projects</h2>
 
-      <style>{`
-    @keyframes fadeSlide {
-      0% { opacity: 0; }
-      10% { opacity: 1; }
-      25% { opacity: 1; }
-      35% { opacity: 0; }
-      100% { opacity: 0; }
-    }
-    .animate-fadeSlide {
-      animation: fadeSlide 8s infinite ease-in-out;
-    }
-  `}</style>
+    <ul className="more-list">
+      <li>
+        <strong>GenAI Cold Email Generator</strong> — RAG-based Cold Email Generator using Llama 3.1, LangChain, ChromaDB, and Streamlit that helps software companies send cold emails to acquire projects by extracting data from their potential clients’ job postings and matching the required skills with their portfolios. 
+        <a href="https://github.com/nahianfariha/GenAI-Cold-Email-Generator">Repository</a>
+      </li>
+
+      <li>
+        <strong>Hallucination Detection Benchmark</strong> — A Benchmark for Hallucination Detection in Large Language Models by constructing a structured dataset and a systematic evaluation protocol to assess factual consistency in LLM-generated outputs.
+        <a href="#">Private Repository</a>
+      </li>
+
+      <li>
+        <strong>Real-Time Social Distance Estimation</strong> — Detects people in real-time videos using YOLOv3 and calculates distances with Euclidean metrics to help monitor safe distancing; completed during the COVID-19 outbreak.
+        <a href="https://github.com/nahianfariha/REAL-TIME-SOCIAL-DISTANCE-ESTIMATION-USING-YOLO-CONVOLUTIONAL-NEURAL-NETWORK-AND-EUCLIDEAN-DISTANCE.git">Repository</a>
+      </li>
+
+      <li>
+        <strong>Movie Recommendation System</strong> — MHelps users discover personalized movie suggestions based on their preferences, built with Python, data preprocessing, vectorization, and Streamlit.
+        <a href="https://github.com/nahianfariha/Machine-Learning-and-Ai.git">Repository</a>
+      </li>
+
+      <li>
+        <strong>Restaurant Profit Estimator</strong> — A predictive analytics project that estimates restaurant profits based on city population data. Built with Python, NumPy, Matplotlib, and Linear Regression implemented from scratch in Jupyter Notebook.
+        <a href="https://github.com/nahianfariha/Restaurant-Profit-Estimator-using-Linear-Regression-Model">Repository</a>
+      </li>
+    </ul>
+  </div>
+
+  {/* SKILLS (FULL VERSION LIKE PORTFOLIO) */}
+  <div className="research-card">
+    <h2>Skills</h2>
+
+    <ul className="more-list">
+      <li>
+        <strong>Programming Languages:</strong> Python, C, C++, JavaScript
+      </li>
+
+      <li>
+        <strong>Web Development:</strong> React, Node.js, Tailwind CSS, Bootstrap, HTML5, CSS Grid, Vite, GitHub Pages
+      </li>
+
+      <li>
+        <strong>Machine Learning & AI:</strong> TensorFlow, OpenCV, Pandas, NumPy, Matplotlib, LangChain, RAG, Streamlit
+      </li>
+
+      <li>
+        <strong>Database:</strong> PostgreSQL, ChromaDB
+      </li>
+
+      <li>
+        <strong>Tools:</strong> Git, GitHub, VS Code, Jupyter Notebook, Google Colab, Figma, LaTeX
+      </li>
+
+      <li>
+        <strong>Others:</strong> UX/UI Design, Responsive Web Design, Adobe Photoshop, Illustrator, Procreate
+      </li>
+    </ul>
+  </div>
+
+
+  {/* WORK EXPERIENCE */}
+  <div className="research-card">
+    <h2>Work Experience</h2>
+
+    <ul className="more-list">
+
+      <li>
+        <strong>Agent Banking Desk Officer</strong> – Islami Bank Bangladesh PLC  
+        <br />
+        Sept 2025 - Dec 2025  
+        <br />
+        Hands-on experience with banking software for account management and financial transactions, ensuring accuracy and compliance. Assisting clients with opening and managing accounts, including savings, current, fixed deposits (TDR), and DPS. Supporting clients in financial product selection to meet their banking needs. Experience in cash management, customer service, and financial advisory.
+      </li>
+
+      <li>
+        <strong>Founder and Artist</strong> – Dot Pictures Studio  
+        <br />
+        May 2021 - Present  
+        <br />
+        Created and sold a variety of customized products including cartoon/customized banners, graphics, illustrations, painted products, paintings, UX/UI designs, and painted tote bags. Managed the entire business process from product design to delivery ensuring customer satisfaction. Handled social media marketing, client communications, and order management.
+      </li>
+
+      <li>
+        <strong>Web Application Development Trainee</strong> – BASIS Institute of Technology and Management (BITM)  
+        <br />
+        Feb 2019 – April 2019  
+        <br />
+        Collaborated in a 4-member team to develop two website projects, applying OOP basics, web fundamentals (HTML, CSS, JavaScript), and database management (MS SQL Server), while gaining hands-on experience with web programming and full software development life cycle.
+      </li>
+
+    </ul>
+  </div>
+
+  {/* Courses & CERTIFICATIONS */}
+  <div className="research-card">
+    <h2>Courses & Certifications</h2>
+
+    <ul className="more-list">
+      <li>
+        Machine Learning Specialization – Coursera
+        <a href="https://github.com/nahianfariha/Machine-Learning-and-Ai">Repository</a>
+      </li>
+
+      <li>
+        Deep Learning Specialization – Coursera
+        <a href="https://github.com/nahianfariha/Machine-Learning-and-Ai">Repository</a>
+      </li>
+
+      <li>
+        Python for Everybody Specialization – Coursera
+        <a href="https://github.com/nahianfariha/Python-for-Everybody-All-Codes-5-Courses">Repository</a>
+      </li>
+
+      <li>
+        Linear Algebra for Machine Learning and Data Science – Coursera
+        
+      </li>
+
+      <li>
+        Google UX Design Specialization – Coursera
+        
+      </li>
+
+      <li>
+        Mastering Data Structures & Algorithms – Udemy
+        <a href="https://github.com/nahianfariha/Udemy-Mastering-Data-Structures-Algorithms-Abdul-Bari">Repository</a>
+      </li>
+
+      <li>
+        Full-Stack Web Development Bootcamp – Dr. Angela Yu
+        <a href="https://github.com/nahianfariha/Full-Stack-Web-Development-Bootcamp">Repository</a>
+      </li>
+    </ul>
+  </div>
+
+  {/* VOLUNTEERING & Extracurricular Activities */}
+  <div className="research-card">
+    <h2>Volunteering & Extracurricular Activities</h2>
+
+    <ul className="more-list">
+      <li>Member of IIUC Photography Club</li>
+      <li>Member of IIUC Computer Club</li>
+      <li>Active volunteer in university and community events, demonstrating teamwork and leadership</li>
+      <li><a href="https://nahianfariha.github.io/dotpicturesstudio/" target="_blank" rel="noopener noreferrer">Art Practitioner</a></li>
+    </ul>
+  </div>
+</section>
 
 
 
+      {/* FOOTER */}
+      <footer className="footer" id="contact">
+        <p>
+          “CREATION AND PROBLEM-SOLVING BRING ME JOY. THEY’RE AT THE HEART OF
+          EVERYTHING I DO.”
+        </p>
 
-      {/* Contact */}
-      <footer id="contact" className="footer">
-        <p>“CREATION AND PROBLEM-SOLVING BRING ME JOY. THEY’RE AT THE HEART OF EVERYTHING I DO.”</p>
-        <p>Reach me anytime at <a href="mailto:nahianfariha.cs@gmail.com">nahianfariha.cs@gmail.com</a></p>
+        <p>
+          Contact:
+          <a href="mailto:nahianfariha.cs@gmail.com">
+            nahianfariha.cs@gmail.com
+          </a>
+        </p>
       </footer>
     </div>
   );
