@@ -1,8 +1,7 @@
-
 import React, { useState, useEffect } from "react";
 import "./App.css";
 
-import NF from "./images/nf9.webp";
+import NF from "./images/nf01.jpg";
 
 import img1 from "./images/img1.jpg";
 import img2 from "./images/img2.jpg";
@@ -16,6 +15,7 @@ import img9 from "./images/nf8.webp";
 const App = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [slideIndex, setSlideIndex] = useState(0);
+  const [newsIndex, setNewsIndex] = useState(0);
 
   const eduImages = [img3, img4,img5, img6,img7, img8, img9];
 
@@ -32,7 +32,6 @@ const App = () => {
 
 
 const newsItems = [
-
   {
     text: "Presented my current research work on 1st AI & Business Online Conference hosted by Professor Minh Nguyen, (Florida Atlantic University), on May, 2026.",
     link: "https://www.linkedin.com/feed/update/urn:li:activity:7459069227434397696/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADd8WnoB4n-f9f6hjwVDCK03P3UXAdI5kg4",
@@ -41,9 +40,17 @@ const newsItems = [
   {
     text: "Attended LLMs Nexus: Bridging Technical Innovation and Ethical Horizons, hosted by Southern Illinois University, Carbondale, on July, 2025.",
     link: "https://www.linkedin.com/posts/nahian-fariha_ai-llms-machinelearning-share-7329108148059811841-D_FA?utm_source=share&utm_medium=member_desktop&rcm=ACoAADd8WnoB4n-f9f6hjwVDCK03P3UXAdI5kg4",
-    img: img2,
   },
 ];
+
+  // ✅ NEWS BOX ROTATION (2s), no repetition — cycles through newsItems one at a time
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setNewsIndex((prev) => (prev + 1) % newsItems.length);
+    }, 2500);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const projects = [
     {
@@ -72,8 +79,6 @@ const newsItems = [
     <div className="app">
       {/* NAVBAR */}
       <header className="navbar">
-        <div className="logo">Nahian Fariha</div>
-
         <div className={`nav-links ${menuOpen ? "active" : ""}`}>
           <a href="#about">About</a>
           <a href="#research">Research</a>
@@ -89,185 +94,209 @@ const newsItems = [
       </header>
 
 
-{/* NEWS FLOW */}
-
-<section className="news-section">
-  <div className="news-header">
-    <span className="news-label">NEWS:</span>
-
-    <div className="news-slider">
-      <div className="news-track">
-          {[
-              ...(window.innerWidth <= 900
-                ? newsItems
-                : [...newsItems, ...newsItems]),
-            ].map((item, index) => (
-          <a
-            key={index}
-            className="news-card"
-            href={item.link}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img src={item.img} alt="" className="news-img" />
-
-            <div className="news-text">
-              {item.text}
-            </div>
-          </a>
-        ))}
-      </div>
-    </div>
-  </div>
-</section>
 
       {/* HERO */}
       <section className="hero" id="about">
-        <div className="hero-left">
-          <img src={NF} alt="Nahian Fariha" className="profile-img" />
+        <div className="hero-top">
+          <div className="hero-text">
+            <div className="name-row">
+              <h1>
+                Nahian <span>Fariha</span>
+              </h1>
+            </div>
 
-          <div className="socials">
-            <a href="mailto:nahianfariha.cs@gmail.com">Email</a>
-            <a href="https://github.com/NahianFariha">GitHub</a>
-            <a href="https://linkedin.com/in/nahian-fariha">LinkedIn</a>
-          </div>
-          <div className="socials" >
-            <a href="https://scholar.google.com/citations?hl=en&user=o_MFW1EAAAAJ&view_op=list_works&authuser=1&gmla=AIqSsVtwEeR_XyGEHSTpwJJpSktz2NQbhl9FgoON_boTKovWXtoP1ZdfP2W9BFio-e6Aq0yq815QUR4t_ILsFKzH">Google Scholar</a>
-            <a href="https://leetcode.com/u/NahianFariha/">LeetCode</a>
+            <p className="bio">
+              I am a CSE graduate interested in pursuing research on {" "}
+              <strong>trustworthy AI</strong> that can be relied upon in real-world settings.
+            </p>
+
+            <p className="bio">
+              Recently, I worked on <strong>hallucination detection</strong> in <strong>LLM</strong>-generated product reviews, which deepened my interest in <strong>trustworthy AI</strong>. For my next work, I am interested in extending this research toward <strong>explainability and multimodal AI</strong>. In the longer term, I hope to <strong> build trustworthy AI systems that can operate reliably in real-world settings.</strong> 
+              I am currently collaborating with professors from my undergraduate university and applying to grad school to further pursue my research.
+            </p>
+
+            <p className="bio"> Outside research, I am an artist. I founded and ran my own art
+              business,{" "}
+              <a
+                className="studio-link"
+                href="https://nahianfariha.github.io/dotpicturesstudio/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Dot Pictures Studio
+              </a>
+              . I enjoy photography, nature, quiet time, instrumental music, and
+              exploring people doing different hobbies and activities.
+            </p>
+
+            <ul className="research-tags">
+              <li>Trustworthy AI</li>
+              <li>Explainable AI </li>
+              <li>Hallucination Detection</li>
+              <li>LLMs</li>
+              <li>Multimodal AI</li>
+              <li>NLP</li>
+              <li>Computer Vision</li>
+              <li>Deep Learning</li>
+              <li>Generative AI</li>
+            </ul>
           </div>
 
-          <a
-            className="resume-btn"
-            href="https://drive.google.com/file/d/1n2XsW8g2Y0wqufb0xY-hI5zj_CeF78zS/view?usp=sharing"
-          >
-            Download CV
-          </a>
+          <div className="profile-block">
+            <img src={NF} alt="Nahian Fariha" className="profile-img" />
+
+            <div className="profile-social">
+              <a
+                href="https://linkedin.com/in/nahian-fariha"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="LinkedIn"
+                title="LinkedIn"
+              >
+                LinkedIn
+              </a>
+
+              <a
+                href="https://scholar.google.com/citations?hl=en&user=o_MFW1EAAAAJ&view_op=list_works&authuser=1&gmla=AIqSsVtwEeR_XyGEHSTpwJJpSktz2NQbhl9FgoON_boTKovWXtoP1ZdfP2W9BFio-e6Aq0yq815QUR4t_ILsFKzH"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Google Scholar"
+                title="Google Scholar"
+              >
+                Scholar
+              </a>
+
+              <a
+                href="https://github.com/NahianFariha"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="GitHub"
+                title="GitHub"
+              >
+                Github
+              </a>
+
+              <a
+                href="mailto:nahianfariha.cs@gmail.com"
+                aria-label="Email"
+                title="Email"
+              >
+                Email
+              </a>
+            </div>
+
+            <span className="availability-text">Open to Research Collaborations</span>
+
+            <a
+              href="https://drive.google.com/file/d/1BClLgyUMLVXHXgAdiNUX2rDImAmgxsZS/view?usp=sharing"
+              target="_blank"
+              rel="noreferrer"
+              className="profile-cv-link"
+            >
+              Download CV
+            </a>
+
+      
+            <a
+              className="news-box"
+              href={newsItems[newsIndex].link}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span className="news-box-label">News</span>
+              {newsItems[newsIndex].img && (
+                <img
+                  src={newsItems[newsIndex].img}
+                  alt=""
+                  className="news-box-img"
+                />
+              )}
+              <p className="news-box-text">{newsItems[newsIndex].text}</p>
+            </a>
+          </div>
         </div>
 
-        <div className="hero-right">
-          <p className="tagline">Researcher • AI and ML</p>
+          {/* RESEARCH (merged: box heading is now "Research", with "Current Research"
+              label + manuscript summary + key points + tools, pulled in from the old
+              standalone Research section) */}
+          <div className="current-research" id="research">
+            <h3>Research</h3>
 
-          <h1>
-            Nahian <span>Fariha</span>
-          </h1>
-
-          <div className="availability">
-            OPEN TO RESEARCH ASSISTANTSHIP POSITIONS
-          </div>
-
-          <p className="bio">
-            Computer Science and Engineering graduate currently engaged in AI and Machine Learning research.
-          </p>
-
-          <div className="research-tags">
-            <span>Natural Language Processing</span>
-            <span>Trustworthy AI</span>
-            <span>Multimodal AI</span>
-            <span>Machine Learning</span>
-            <span>Generative AI</span>
-          </div>
-
-          <div className="current-research">
-            <h3>Current Research</h3>
+            <span className="current-research-label">Current Research</span>
 
             <p>
-(Manuscript in Preparation) 
-Domain: AI in Business, Trustworthy AI, Hallucination in AI, Generative AI, LLMs.
-Developed a benchmark framework for hallucination detection in large language models by constructing a structured dataset and a systematic evaluation protocol to assess factual consistency in LLM-generated outputs.  
+              (Manuscript) <strong>ShopHallu: A Benchmark Dataset and
+              Evaluation Framework for Detecting Hallucination in
+              LLM-Generated Influencer-Style Product Reviews.</strong>
+              <br />
+              Domain: Trustworthy AI, Hallucination Detection and
+              Mitigation, Generative AI, LLMs, AI in Business.
             </p>
+
+            <ul className="current-research-content">
+              <li>
+                Built ShopHallu, a 22,275-pair benchmark dataset for detecting
+                hallucination in LLM-generated product reviews, using 3 LLMs
+                across 3 prompting strategies and 5 temperature settings.
+              </li>
+
+              <li>
+                Designed a rule-guided annotation framework (SBERT similarity +
+                lexical cues) achieving 89.0% inter-annotator agreement
+                (Cohen's κ = 0.83) across a 3-class hallucination taxonomy.
+              </li>
+
+              <li>
+                Found persuasive prompting nearly doubled hallucination rates
+                vs. strict prompting (75.49% vs. 34.74%, p &lt; 0.001),
+                validated via cluster-aware statistical modeling.
+              </li>
+
+              <li>
+                <strong>Tools & Methods:</strong> Python (Pandas, SciPy,
+                Statsmodels, Sentence-Transformers), LLM Models (GPT-4o-mini/Gemini
+                Flash/Llama-8b-instruct), GEE analysis, Google Colab.
+              </li>
+            </ul>
+
+            <div className="collaborators">
+              <span className="collaborators-label">Authors:</span>
+              <a >
+                Nahian Fariha
+              </a>
+              <span className="collaborators-label"></span>
+              <a href="https://scholar.google.com/citations?user=Z2Rm0MwAAAAJ&hl=en" target="_blank" rel="noreferrer">
+                Farzana Tasnim
+              </a>
+              <a href="https://orcid.org/0000-0001-9925-3363" target="_blank" rel="noreferrer">
+                Lutfun Nahar
+              </a>
+            </div>
           </div>
-        </div>
       </section>
 
+{/* THESIS / PROJECTS */}
+<section className="section">
+  <div className="research-card projects-card">
+    <h2>Thesis/Project</h2>
 
-
-      {/* RESEARCH */}
-     <section className="section" id="research">
-  <div className="section-title">
-    <span>Research</span>
-  </div>
-
-  <div className="research-card">
-    <div className="research-top">
-      <h2>Ongoing Research (Manuscript in Preparation)</h2>
-      <p>2026</p>
-    </div>
-
-    <div className="research-content">
-      <ul>
-        <li>
-          <strong>Domain:</strong> AI in Business, Trustworthy AI,
-          Hallucination in AI, Generative AI, and Large Language Models
-          (LLMs).
-        </li>
-
-        <li>
-          Developed a benchmark framework for hallucination detection in
-          large language models by constructing a structured dataset and a
-          systematic evaluation protocol to assess factual consistency in
-          LLM-generated outputs.
-        </li>
-
-        <li>
-          Designed a multi-level annotation scheme and a quantitative
-          evaluation pipeline to identify and categorize hallucination
-          types.
-        </li>
-
-        <li>
-          Analyzed how prompting strategies and generation settings
-          influence hallucination behavior across multiple domains.
-        </li>
-
-        <li>
-          <strong>Tools & Methods:</strong> Python (Pandas, NumPy),
-          OpenAI GPT-4o mini, data preprocessing & sampling,
-          LLM-based text generation, manual annotation,
-          quantitative evaluation, Google Colab, VS Code,
-          Overleaf, and Google Sheets.
-        </li>
-      </ul>
-    </div>
-  </div>
-
-       <div className="research-card">
-  <div className="research-top">
-    <h2>Real-time Social Distance Estimation using YOLO Convolutional Neural Network and Euclidean Distance.</h2>
-    <p>(Undergraduate Thesis) - 2021</p>
-  </div>
-
-  <div className="research-content">
-    <ul>
-      <li>
-        Proposed a real-time system to estimate social distancing by
-        analyzing video footage from six distinct environments:
-        good quality, fuzzy, daylight, nightlight, less populated,
-        and crowded scenarios.
-      </li>
-
-      <li>
-        Implemented person detection using YOLOv3 pretrained on the
-        COCO dataset, computed centroids, and applied Euclidean
-        distance to measure interpersonal spacing.
-      </li>
-
-      <li>
-        Achieved 90% tracking accuracy across varied environmental
-        conditions, demonstrating robustness in both low-visibility
-        and high-density scenarios.
-      </li>
-
-      <li>
-        Contributed to research on real-time computer vision methods
-        for public safety and monitoring applications.
-      </li>
-
-      <li>
-        <strong>Tech Stack:</strong> Python, OpenCV, YOLOv3,
-        COCO Dataset, NumPy.
-      </li>
-
-      <li>
+    <div className="project-grid">
+      <div className="project-card">
+        <h3>
+          Real-time Social Distance Estimation using YOLO Convolutional
+          Neural Network and Euclidean Distance (Undergraduate Thesis)
+        </h3>
+        <p>
+          Proposed a real-time system to estimate social distancing by
+          analyzing video footage across six distinct environments (good
+          quality, fuzzy, daylight, nightlight, less populated, and
+          crowded), using YOLOv3 person detection and Euclidean distance
+          between centroids — achieving 90% tracking accuracy across
+          varied conditions.
+        </p>
+        <span className="project-stack">
+          Python · OpenCV · YOLOv3 · COCO Dataset · NumPy
+        </span>
         <a
           href="https://drive.google.com/file/d/13Zvm6vAlXyL5QDvMjuy_luiB1LplvvK7/view"
           target="_blank"
@@ -275,11 +304,126 @@ Developed a benchmark framework for hallucination detection in large language mo
         >
           CLICK HERE TO READ MY THESIS BOOK →
         </a>
-      </li>
-    </ul>
+      </div>
+
+      <div className="project-card">
+        <h3>GenAI Cold Email Generator</h3>
+        <p>
+          Helps software agencies pitch faster — extracts requirements
+          straight from a client's job posting and drafts a cold email that
+          matches the right portfolio pieces to those requirements
+          automatically.
+        </p>
+        <span className="project-stack">
+          Llama 3.1 · LangChain · ChromaDB · Streamlit
+        </span>
+        <a
+          href="https://github.com/nahianfariha/GenAI-Cold-Email-Generator.git"
+          target="_blank"
+          rel="noreferrer"
+        >
+          View repository →
+        </a>
+      </div>
+
+      <div className="project-card">
+        <h3>Bengali Medical Chatbot</h3>
+        <p>
+          Answers Bengali-language patient queries in a doctor-style voice —
+          fine-tuned to stay grounded and empathetic instead of generic,
+          trained efficiently on limited GPU resources.
+        </p>
+        <span className="project-stack">
+          QLoRA · Qwen2.5-3B · PyTorch · Hugging Face Transformers · PEFT
+        </span>
+        <a
+          href="https://github.com/nahianfariha/bengali-medical-chatbot.git"
+          target="_blank"
+          rel="noreferrer"
+        >
+          View repository →
+        </a>
+      </div>
+
+      <div className="project-card">
+        <h3>Hallucination Detection Benchmark</h3>
+        <p>
+          Distinguishes fabricated or contradictory claims from persuasive
+          but honest language in LLM-generated text, via a structured
+          dataset and evaluation protocol for factual consistency.
+        </p>
+        <span className="project-stack">Python · Evaluation Framework</span>
+        <span className="project-private">Private repository</span>
+      </div>
+
+      <div className="project-card">
+        <h3>Real-Time Social Distance Estimation</h3>
+        <p>
+          Detects people in live video and flags unsafe proximity in real
+          time, built to help monitor safe distancing during the COVID-19
+          outbreak.
+        </p>
+        <span className="project-stack">
+          YOLOv3 · OpenCV · COCO Dataset · NumPy
+        </span>
+        <a
+          href="https://github.com/nahianfariha/REAL-TIME-SOCIAL-DISTANCE-ESTIMATION-USING-YOLO-CONVOLUTIONAL-NEURAL-NETWORK-AND-EUCLIDEAN-DISTANCE.git"
+          target="_blank"
+          rel="noreferrer"
+        >
+          View repository →
+        </a>
+      </div>
+
+      <div className="project-card">
+        <h3>Movie Recommendation System</h3>
+        <p>
+          Helps users discover personalized movie picks based on their
+          preferences, using content-based filtering over a preprocessed
+          and vectorized dataset.
+        </p>
+        <span className="project-stack">
+          Python · Data Preprocessing · Streamlit
+        </span>
+        <a
+          href="https://github.com/nahianfariha/Machine-Learning-and-Ai.git"
+          target="_blank"
+          rel="noreferrer"
+        >
+          View repository →
+        </a>
+      </div>
+
+      <div className="project-card">
+        <h3>Restaurant Profit Estimator</h3>
+        <p>
+          Predicts expected restaurant profit from city population data,
+          using a linear regression model implemented from scratch to
+          learn the underlying mechanics.
+        </p>
+        <span className="project-stack">
+          Python · NumPy · Matplotlib · Linear Regression
+        </span>
+        <a
+          href="https://github.com/nahianfariha/Restaurant-Profit-Estimator-using-Linear-Regression-Model"
+          target="_blank"
+          rel="noreferrer"
+        >
+          View repository →
+        </a>
+      </div>
+    </div>
+
+    <a
+      className="more-projects-link"
+      href="https://github.com/nahianfariha/Machine-Learning-and-Ai.git"
+      target="_blank"
+      rel="noreferrer"
+    >
+      See more projects →
+    </a>
   </div>
-</div>
-      </section>
+</section>
 
 {/* =========================
         MORE SECTION
@@ -306,7 +450,7 @@ Developed a benchmark framework for hallucination detection in large language mo
         </a>
       </p>
       <span>
-        Autumn 2016 - Spring 2020 | Result Publication Date: 9th September 2021
+        Autumn 2016 - Spring 2020 | Result Publication Date: 5th September 2021
       </span>
     </div>
 
@@ -322,45 +466,6 @@ Developed a benchmark framework for hallucination detection in large language mo
   </div>
 </div>
 
-
-
-
-
- {/* PROJECTS (EXTENDED VERSION - SAME STYLE AS PORTFOLIO) */}
-  <div className="research-card">
-    <h2>Projects</h2>
-
-    <ul className="more-list">
-      <li>
-        <strong>GenAI Cold Email Generator</strong> — RAG-based Cold Email Generator using Llama 3.1, LangChain, ChromaDB, and Streamlit that helps software companies send cold emails to acquire projects by extracting data from their potential clients’ job postings and matching the required skills with their portfolios. 
-        <a href="https://github.com/nahianfariha/GenAI-Cold-Email-Generator">Repository</a>
-      </li>
-
-      <li>
-        <strong>Hallucination Detection Benchmark</strong> — A Benchmark for Hallucination Detection in Large Language Models by constructing a structured dataset and a systematic evaluation protocol to assess factual consistency in LLM-generated outputs.
-        <a href="#">Private Repository</a>
-      </li>
-
-      <li>
-        <strong>Real-Time Social Distance Estimation</strong> — Detects people in real-time videos using YOLOv3 and calculates distances with Euclidean metrics to help monitor safe distancing; completed during the COVID-19 outbreak.
-        <a href="https://github.com/nahianfariha/REAL-TIME-SOCIAL-DISTANCE-ESTIMATION-USING-YOLO-CONVOLUTIONAL-NEURAL-NETWORK-AND-EUCLIDEAN-DISTANCE.git">Repository</a>
-      </li>
-
-      <li>
-        <strong>Movie Recommendation System</strong> — MHelps users discover personalized movie suggestions based on their preferences, built with Python, data preprocessing, vectorization, and Streamlit.
-        <a href="https://github.com/nahianfariha/Machine-Learning-and-Ai.git">Repository</a>
-      </li>
-
-      <li>
-        <strong>Restaurant Profit Estimator</strong> — A predictive analytics project that estimates restaurant profits based on city population data. Built with Python, NumPy, Matplotlib, and Linear Regression implemented from scratch in Jupyter Notebook.
-        <a href="https://github.com/nahianfariha/Restaurant-Profit-Estimator-using-Linear-Regression-Model">Repository</a>
-      </li>
-      <li>
-        <strong>Click to see More Projects</strong>
-        <a href="https://github.com/nahianfariha/Machine-Learning-and-Ai.git">Repository</a>
-      </li>
-    </ul>
-  </div>
 
 
   {/* SKILLS (FULL VERSION LIKE PORTFOLIO) */}
